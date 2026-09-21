@@ -1,51 +1,43 @@
 ---
-// src/layouts/BaseLayout.astro
+import '../styles/global.css';
 import CyberCanvas from '../components/CyberCanvas.astro';
 
 export interface Props {
   title: string;
-  description?: string;
 }
 
-const { title, description = "Cyber exercise blueprints and hands-on scenarios." } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500/30 selection:text-sky-200">
+<html lang="en" class="bg-slate-950 text-slate-100">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name="description" content={description} />
     <link rel="canonical" href="https://0xsac.com" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="relative min-h-screen bg-slate-950 overflow-x-hidden flex flex-col justify-between">
-    <!-- Ambient Radial Glow & Moving Objects Canvas -->
-    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-950/20 via-slate-950 to-slate-950"></div>
+  <body class="bg-slate-950 text-slate-100 min-h-screen relative flex flex-col justify-between overflow-x-hidden">
     <CyberCanvas />
 
-    <!-- Site Wrapper -->
-    <div class="relative z-10 max-w-4xl mx-auto w-full px-6 py-10 flex-grow flex flex-col justify-between">
-      <!-- Unified Header -->
-      <header class="flex justify-between items-center pb-6 border-b border-slate-800/60 backdrop-blur-sm">
-        <a href="/" class="text-xl font-mono font-bold tracking-tight text-sky-400 hover:text-sky-300 transition-colors">
-          0xSac
-        </a>
+    <div class="max-w-4xl mx-auto w-full px-6 py-10 flex-grow flex flex-col justify-between">
+      <!-- Unified Top Header -->
+      <header class="flex justify-between items-center pb-6 border-b border-slate-800">
+        <a href="/" class="text-xl font-mono font-bold text-sky-400">0xSac</a>
         <nav class="space-x-6 text-sm font-mono text-slate-400">
-          <a href="/" class="hover:text-white transition-colors">Home</a>
-          <a href="/about" class="hover:text-white transition-colors">About</a>
-          <a href="/resources" class="hover:text-white transition-colors">Resources</a>
+          <a href="/" class="hover:text-white">Home</a>
+          <a href="/about" class="hover:text-white">About</a>
+          <a href="/resources" class="hover:text-white">Resources</a>
         </nav>
       </header>
 
-      <!-- Main Injected Content -->
+      <!-- Content Slot -->
       <main class="py-10 flex-grow">
         <slot />
       </main>
 
-      <!-- Clean Unified Footer -->
-      <footer class="pt-8 border-t border-slate-800/60 text-xs font-mono text-slate-500 flex justify-between items-center">
+      <!-- Unified Footer -->
+      <footer class="pt-8 border-t border-slate-800 text-xs font-mono text-slate-500 flex justify-between">
         <span>0xSac &bull; Sacramento, CA</span>
         <span>Technical Blueprints</span>
       </footer>

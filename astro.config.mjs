@@ -1,10 +1,9 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://0xsac.github.io',
-  trailingSlash: 'always',
-  vite: {
-    plugins: [tailwindcss()],
-  },
+  site: 'https://0xsac.com',
+  base: '/',
+  output: 'static',
+  integrations: [tailwind()],
 });

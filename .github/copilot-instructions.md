@@ -1,31 +1,47 @@
-# 0xSac Agent Instructions
+# 0xSac Web Platform Agent Instructions & Cleanup Protocol
 
-## 1. Identity, Aesthetic & Tone
-0xSac provides scenario-driven cyber exercises, threat-informed architecture blueprints, and detection validation playbooks based in Northern California.
-- Aesthetic Style: Modern, clean cybersecurity hub inspired by CyberSwarm. Deep slate backgrounds, ambient particle canvas (`CyberCanvas.astro`), subtle glassmorphism (`backdrop-blur`), and soft cyan glow highlights.
-- Copy Tone: Direct, technical, and understated. Speak as an experienced engineer. Strip out all sales fluff, marketing buzzwords, and dramatic phrases.
-- Prohibited Phrases: Never use "practitioner-led," "battle-tested reps," "community working group," "homeland defense," or "check-the-box reviews."
+## 1. Project Identity & Architecture
+0xSac is a technical initiative developing cyber exercise blueprints, threat-informed scenarios, and detection validation guides in Northern California.
+- Current Status: Active Staging (Date TBD).
+- Tech Stack: Astro (Static output mode), Tailwind CSS, deployed to GitHub Pages via GitHub Actions.
+- Target Domain: `0xsac.com` (CNAME managed in `/public/CNAME`).
+- Absolute Isolation Rule: 0xSac is 100% standalone. NEVER mention, reference, or commit anything mentioning "mogsec" or "DFND".
 
-## 2. Hard Platform Isolation
-- 0xSac is completely standalone. Strictly DO NOT mention or reference "mogsec" or "DFND".
-- All lab guides, range topologies, and exercise specs must remain vendor-neutral, portable, and hosted in independent cloud or local lab environments (AWS, Azure, GCP, Proxmox).
+## 2. Immediate Fixes Required (Visual & Styling Engine)
+1. CSS / Tailwind Delivery:
+   - Ensure `@astrojs/tailwind` is imported and active in `astro.config.mjs`.
+   - Ensure `src/styles/global.css` has standard Tailwind directives:
+     ```css
+     @tailwind base;
+     @tailwind components;
+     @tailwind utilities;
+     ```
+   - Ensure `BaseLayout.astro` explicitly imports `../styles/global.css`.
+   - The body tag must enforce the dark background: `<body class="bg-slate-950 text-slate-100 min-h-screen">`.
 
-## 3. Site Navigation & Clean Shell Rules
-- Routes: Three core pages only: `/` (Home), `/about` (About), and `/resources` (Resources).
-- Layout Cleanliness: Maintain exactly one global header and one global footer inside `BaseLayout.astro`. Never duplicate navbar links or footer taglines inside individual page templates.
-- Launch Status: Keep to the clean pill badge: `Status: Staging — Date TBD`.
-- Sponsorship: Single minimal text card routing inquiries to `partner@0xsac.com`. No multi-tier pricing cards or complex matrices.
+2. Canvas Background Boundary Fix (`CyberCanvas.astro`):
+   - The canvas element MUST be set to `class="fixed inset-0 pointer-events-none -z-10 w-full h-full"`.
+   - Do NOT let the canvas push or displace `<main>` DOM elements. It must remain strictly in the background behind content.
 
-## 4. Tech Stack & Local Execution
-- Framework: Astro (Static Site Generation mode) paired with Tailwind CSS (dark terminal palette: Slate #0F172A, Border #1E293B, Sky #38BDF8, Emerald #10B981).
-- Hosting: Zero-cost static build hosted on GitHub Pages via GitHub Actions.
-- Local Testing Workflow:
-  - Install dependencies: `npm install`
-  - Start local server: `npm run dev`
-  - Build validation: `npm run build`
-  - Local preview: `npm run preview`
+3. Single Source of Truth for Shell (Header & Footer):
+   - Exactly ONE `<header>` and ONE `<footer>` must exist across the site, located exclusively in `src/layouts/BaseLayout.astro`.
+   - Strip out any `<header>`, `<nav>`, or `<footer>` tags from `index.astro`, `about.astro`, or `resources.astro` to eliminate duplicate navbar lines.
 
-## 5. SEO, URL Reputation & Schema Engineering
-- Canonical Routing: Use trailing-slash semantic slugs (`/exercises/<slug>/`, `/briefings/<slug>/`).
-- Meta Standards: High-density, practitioner-oriented titles (<60 chars) and descriptions (<155 chars) covering MITRE ATT&CK technique IDs, tools, and learning objectives.
-- Structured Data: Every exercise page must inject Schema.org JSON-LD (`TechArticle` or `Course`).
+## 3. Site Map & Content Scope
+Maintain only 3 active functional routes:
+1. `/` (Home): Hero statement, status pill (`Status: Staging — Date TBD`), 3 core capability cards (Runbooks, Detection, Blueprints), active scenario previews, and single minimal partner inquiry note (`partner@0xsac.com`).
+2. `/about` (About): Plain-language Vision, Mission, and Operational Boundaries.
+3. `/resources` (Resources): Notes, Sigma guides, and architectural range blueprints.
+
+## 4. Unused File Pruning Checklist
+Delete the following deprecated or redundant files if present:
+- `src/components/Navbar.astro` (consolidated into `BaseLayout.astro`)
+- `src/components/StatusBanner.astro` (consolidated into `index.astro`)
+- `src/components/MselTimeline.astro`
+- `src/pages/briefings/` and `content/briefings/`
+- `src/pages/exercises/` and `content/exercises/`
+
+## 5. Copy & Tone Guardrails
+- Understated, technical, and clean. No corporate marketing buzzwords.
+- Prohibited Phrases: Never use "practitioner-led," "battle-tested reps," "community working group," "homeland defense," "check-the-box reviews," or multi-tier pricing tables (Platinum/Gold/Silver).
+- Partnership: Keep inquiries simple: `Contact: partner@0xsac.com`.
