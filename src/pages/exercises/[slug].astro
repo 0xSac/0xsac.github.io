@@ -1,19 +1,20 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { contentPath } from '../../utils/content-path';
 
 export async function getStaticPaths() {
   const exercises = await getCollection('exercises');
 
   return exercises.map((exercise) => ({
-    params: { slug: exercise.id },
+    params: { slug: contentPath(exercise.id) },
     props: { exercise },
   }));
 }
 
 const { exercise } = Astro.props;
 const { Content } = await render(exercise);
-const canonical = `/exercises/${exercise.id}/`;
+const canonical = `/exercises/${contentPath(exercise.id)}/`;
 const ldJson = {
   '@context': 'https://schema.org',
   '@type': exercise.data.schemaType,

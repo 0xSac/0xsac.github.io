@@ -1,19 +1,20 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { contentPath } from '../../utils/content-path';
 
 export async function getStaticPaths() {
   const briefings = await getCollection('briefings');
 
   return briefings.map((briefing) => ({
-    params: { slug: briefing.id },
+    params: { slug: contentPath(briefing.id) },
     props: { briefing },
   }));
 }
 
 const { briefing } = Astro.props;
 const { Content } = await render(briefing);
-const canonical = `/briefings/${briefing.id}/`;
+const canonical = `/briefings/${contentPath(briefing.id)}/`;
 const ldJson = {
   '@context': 'https://schema.org',
   '@type': 'TechArticle',
