@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const exercises = await getCollection('exercises');
+
+  return exercises.map((exercise) => ({
+    params: { slug: exercise.id },
+    props: { exercise },
+  }));
+}
+
+const { exercise } = Astro.props;
+const { Content } = await render(exercise);
+const canonical = `/exercises/${exercise.id}/`;
+const ldJson = {
+  '@context': 'https://schema.org',
+  '@type': exercise.data.schemaType,
+  headline: exercise.data.title,
+  description: exercise.data.description,
+  url: `https://0xsac.github.io${canonical}`,
+  author: {
+    '@type': 'Organization',
+    name: '0xSac Community Working Group',
+  },
+  keywords: exercise.data.attackIds.join(', '),
+  educationalLevel: exercise.data.difficulty,
+  timeRequired: exercise.data.duration,
+};
+---
+
+<BaseLayout
+  title={`${exercise.data.title} | 0xSac`}
+  description={exercise.data.description}
+  canonical={canonical}
+  ldJson={ldJson}
+>
+  <article class="mx-auto max-w-3xl rounded-3xl border border-slate-800 bg-slate-900/80 p-8">
+    <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Exercise</p>
+    <h1 class="mt-3 text-4xl font-semibold text-white">{exercise.data.title}</h1>
+    <p class="mt-4 text-lg text-slate-300">{exercise.data.description}</p>
+    <dl class="mt-6 grid gap-4 text-sm text-slate-400 sm:grid-cols-3">
+      <div>
+        <dt class="font-semibold text-slate-200">Difficulty</dt>
+        <dd>{exercise.data.difficulty}</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-slate-200">Duration</dt>
+        <dd>{exercise.data.duration}</dd>
+      </div>
+      <div>
+        <dt class="font-semibold text-slate-200">MITRE ATT&CK</dt>
+        <dd>{exercise.data.attackIds.join(', ')}</dd>
+      </div>
+    </dl>
+    <section class="prose prose-invert mt-8 max-w-none prose-headings:text-white prose-strong:text-slate-100 prose-a:text-emerald-300">
+      <Content />
+    </section>
+  </article>
+</BaseLayout>

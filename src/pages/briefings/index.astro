@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const briefings = (await getCollection('briefings')).sort(
+  (a, b) => b.data.published.getTime() - a.data.published.getTime(),
+);
+---
+
+<BaseLayout
+  title="Briefings | 0xSac"
+  description="Technical analysis and SEO-ready briefings covering detection rules, ATT&CK tradecraft, and defender learning objectives."
+  canonical="/briefings/"
+>
+  <section>
+    <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Technical analysis</p>
+    <h1 class="mt-2 text-4xl font-semibold text-white">Briefings</h1>
+    <p class="mt-4 max-w-3xl text-slate-300">Concise tradecraft analysis and detection-focused articles for defenders building repeatable reps.</p>
+    <div class="mt-8 grid gap-4 lg:grid-cols-2">
+      {briefings.map((briefing) => (
+        <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5">
+          <p class="text-xs uppercase tracking-[0.3em] text-emerald-300">{briefing.data.focus.join(' · ')}</p>
+          <h2 class="mt-3 text-2xl font-semibold text-white">
+            <a href={`/briefings/${briefing.id}/`} class="hover:text-emerald-300">{briefing.data.title}</a>
+          </h2>
+          <p class="mt-3 text-sm text-slate-400">{briefing.data.description}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
