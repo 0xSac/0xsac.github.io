@@ -1,154 +1,95 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { contentPath } from '../utils/content-path';
-
-const exercises = (await getCollection('exercises')).slice(0, 3);
-const briefings = (await getCollection('briefings')).sort(
-  (a, b) => b.data.published.getTime() - a.data.published.getTime(),
-).slice(0, 3);
-
-const ldJson = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: '0xSac',
-  url: 'https://0xsac.github.io/',
-  description: 'Practitioner-led cyber exercises, detection engineering briefings, and threat-informed blueprints for Northern California defenders.',
-};
 ---
 
-<BaseLayout
-  title="0xSac | Northern California Cyber Reps"
-  description="Scenario-driven cyber exercises, detection engineering briefings, and threat-informed blueprints for Northern California defenders."
-  canonical="/"
-  ldJson={ldJson}
->
-  <section class="grid gap-10 lg:grid-cols-[1.4fr_0.9fr] lg:items-start">
-    <div class="space-y-6">
-      <p class="text-sm font-medium uppercase tracking-[0.35em] text-emerald-300">Practitioner-led tradecraft</p>
-      <h1 class="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-        Scenario-driven cyber exercises, threat-informed blueprints, and hands-on defensive repetitions for Northern California defenders.
+<BaseLayout title="0xSac | Cyber Exercises & Technical Blueprints">
+  <div class="max-w-4xl mx-auto px-6 py-16 space-y-16">
+    
+    <!-- Top Navigation -->
+    <header class="flex justify-between items-center pb-6 border-b border-slate-800">
+      <div class="text-xl font-mono font-bold text-sky-400">0xSac</div>
+      <nav class="space-x-6 text-sm font-mono text-slate-400">
+        <a href="/" class="text-white">Home</a>
+        <a href="/about" class="hover:text-white">About</a>
+        <a href="/resources" class="hover:text-white">Resources</a>
+      </nav>
+    </header>
+
+    <!-- Clean Hero -->
+    <section class="space-y-6 pt-6">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20">
+        <span>Status: Staging — Date TBD</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+        Cyber exercise blueprints and hands-on scenarios.
       </h1>
-      <p class="max-w-3xl text-lg text-slate-300">
-        0xSac is a founder-led technical initiative focused on telemetry validation, attack-path testing,
-        detection engineering, and portable lab design. Practical keyboard reps beat check-the-box compliance reviews every time.
+      <p class="text-slate-400 text-lg leading-relaxed max-w-2xl">
+        0xSac develops realistic threat scenarios, detection validation guides, and range blueprints for security engineers and technical teams.
       </p>
-      <div class="inline-flex rounded-full border border-sky-400/40 bg-sky-400/10 px-4 py-2 text-sm font-semibold text-sky-300">
-        Status: Launch Date TBD — Active Staging.
+    </section>
+
+    <!-- Core Focus Areas (Minimal Headers) -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="p-5 bg-slate-900 border border-slate-800 rounded">
+        <h2 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Exercise Runbooks</h2>
+        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+          Step-by-step emulation paths mapped to real adversary tradecraft.
+        </p>
       </div>
-      <div class="flex flex-wrap gap-3">
-        <a href="#partners" class="rounded-full border border-emerald-300 px-4 py-2 text-sm font-medium text-emerald-200 hover:bg-emerald-300 hover:text-slate-950">View partner tiers</a>
-        <a href="#exercises" class="rounded-full border border-slate-700 px-4 py-2 text-sm font-medium text-slate-200 hover:border-slate-500">Preview exercises</a>
+      <div class="p-5 bg-slate-900 border border-slate-800 rounded">
+        <h2 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Detection Logic</h2>
+        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+          Production-ready Sigma rules and telemetry queries to test logging pipelines.
+        </p>
       </div>
-      <div class="grid gap-4 sm:grid-cols-3">
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5">
-          <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">Scenario injects</h2>
-          <p class="mt-3 text-sm text-slate-400">Reproducible adversary chains mapped directly to MITRE ATT&CK objectives.</p>
-        </article>
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5">
-          <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">Detection engineering</h2>
-          <p class="mt-3 text-sm text-slate-400">Sigma and YARA validation logic paired with the telemetry defenders need to trust.</p>
-        </article>
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5">
-          <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">Blueprints</h2>
-          <p class="mt-3 text-sm text-slate-400">Vendor-neutral architecture guidance for AWS, Azure, GCP, Proxmox, and Terraform labs.</p>
-        </article>
+      <div class="p-5 bg-slate-900 border border-slate-800 rounded">
+        <h2 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Range Blueprints</h2>
+        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+          Vendor-neutral architectures for testing in private cloud environments.
+        </p>
       </div>
-    </div>
-    <aside class="rounded-3xl border border-emerald-500/30 bg-emerald-500/10 p-6 shadow-lg shadow-emerald-950/40">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Launch status</p>
-      <h2 class="mt-4 text-3xl font-semibold text-white">Launch Date TBD — Active Staging</h2>
-      <p class="mt-4 text-sm leading-7 text-slate-200">
-        Initial exercises, briefings, and partner alignment are being finalized. Public launch timing remains open while the first scenario tracks and telemetry workflows are staged.
-      </p>
-      <dl class="mt-6 space-y-4 text-sm text-slate-200">
-        <div>
-          <dt class="font-semibold text-white">Mission</dt>
-          <dd class="mt-1 text-slate-300">Threat-informed exercise reps, detection validation, and defensible architecture blueprints.</dd>
+    </section>
+
+    <!-- Upcoming Scenarios -->
+    <section class="space-y-6 pt-4 border-t border-slate-800">
+      <div class="flex justify-between items-baseline">
+        <h2 class="text-lg font-bold text-white font-mono">Current Scenarios in Development</h2>
+        <span class="text-xs font-mono text-slate-500">In Design</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 bg-slate-900/50 border border-slate-800 rounded">
+          <div class="text-xs font-mono text-sky-400 uppercase">Identity</div>
+          <h3 class="text-base font-semibold text-white mt-1">Cloud Token Replay & IAM Escalation</h3>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+            Validation workflow focused on token theft, federated identity trust abuse, and telemetry alerting.
+          </p>
         </div>
-        <div>
-          <dt class="font-semibold text-white">Partner contact</dt>
-          <dd class="mt-1"><a href="mailto:partner@0xsac.com" class="text-sky-300 hover:text-sky-200">partner@0xsac.com</a></dd>
+        <div class="p-5 bg-slate-900/50 border border-slate-800 rounded">
+          <div class="text-xs font-mono text-sky-400 uppercase">Internal Network</div>
+          <h3 class="text-base font-semibold text-white mt-1">RPC & Lateral Movement Validation</h3>
+          <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+            Telemetry collection and detection verification for host-to-host movement within segmented enclaves.
+          </p>
         </div>
-      </dl>
-    </aside>
-  </section>
-
-  <section id="exercises" class="mt-16 scroll-mt-24">
-    <div class="flex items-end justify-between gap-4">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Scenario catalog preview</p>
-        <h2 class="mt-2 text-2xl font-semibold text-white">Exercise pipeline</h2>
       </div>
-      <a href="/exercises/" class="text-sm text-slate-300 hover:text-emerald-300">View all exercises</a>
-    </div>
-    <div class="mt-6 grid gap-4 lg:grid-cols-3">
-      {exercises.map((exercise) => (
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5">
-          <p class="text-xs uppercase tracking-[0.3em] text-emerald-300">{exercise.data.difficulty}</p>
-          <h3 class="mt-3 text-xl font-semibold text-white">
-            <a href={`/exercises/${contentPath(exercise.id)}/`} class="hover:text-emerald-300">{exercise.data.title}</a>
-          </h3>
-          <p class="mt-3 text-sm text-slate-400">{exercise.data.description}</p>
-          <p class="mt-4 text-xs text-slate-500">{exercise.data.attackIds.join(' · ')}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+    </section>
 
-  <section id="partners" class="mt-16 scroll-mt-24">
-    <div class="max-w-4xl">
-      <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Regional partnership tiers</p>
-      <h2 class="mt-2 text-2xl font-semibold text-white">Compute, scenario, and telemetry support</h2>
-      <p class="mt-4 text-slate-300">
-        0xSac is building a California-focused partner model for range compute, scenario delivery, and detection telemetry support during active staging.
+    <!-- Simple Partner / Sponsor Placeholder -->
+    <section class="p-6 bg-slate-900/30 border border-slate-800 rounded space-y-3">
+      <h2 class="text-sm font-bold text-white font-mono uppercase">Partnerships & Support</h2>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        We partner with cloud providers, tool vendors, and regional organizations to sponsor compute and range infrastructure. If you are interested in supporting upcoming exercises:
       </p>
-    </div>
-    <div class="mt-8 grid gap-4 lg:grid-cols-2">
-      <article class="rounded-2xl border border-sky-400/30 bg-slate-900/80 p-5">
-        <p class="text-xs uppercase tracking-[0.3em] text-sky-300">Platinum Partner</p>
-        <h3 class="mt-3 text-xl font-semibold text-white">Regional Range &amp; Cloud Compute Host</h3>
-        <p class="mt-3 text-sm text-slate-400">Supports shared AWS, Azure, GCP, or Proxmox-backed exercise infrastructure for multi-track delivery and telemetry capture.</p>
-      </article>
-      <article class="rounded-2xl border border-emerald-500/30 bg-slate-900/80 p-5">
-        <p class="text-xs uppercase tracking-[0.3em] text-emerald-300">Gold Partner</p>
-        <h3 class="mt-3 text-xl font-semibold text-white">Scenario Track &amp; ATT&amp;CK Pipeline Sponsor</h3>
-        <p class="mt-3 text-sm text-slate-400">Backs a focused exercise lane with mapped ATT&amp;CK objectives, validation checkpoints, and operator runbooks.</p>
-      </article>
-      <article class="rounded-2xl border border-slate-700 bg-slate-900/80 p-5">
-        <p class="text-xs uppercase tracking-[0.3em] text-emerald-300">Silver Partner</p>
-        <h3 class="mt-3 text-xl font-semibold text-white">Telemetry, SIEM, and EDR Tooling Sponsor</h3>
-        <p class="mt-3 text-sm text-slate-400">Expands telemetry coverage, data retention, and validation workflows used to test detections and analyst decision points.</p>
-      </article>
-      <article class="rounded-2xl border border-slate-700 bg-slate-900/80 p-5">
-        <p class="text-xs uppercase tracking-[0.3em] text-emerald-300">Bronze / Academic Partner</p>
-        <h3 class="mt-3 text-xl font-semibold text-white">Regional Workforce Pipeline &amp; Student Range Access</h3>
-        <p class="mt-3 text-sm text-slate-400">Helps extend student lab access, operator practice time, and local workforce development across Northern California programs.</p>
-      </article>
-    </div>
-    <p class="mt-6 text-sm text-slate-400">
-      Partner inquiries: <a href="mailto:partner@0xsac.com" class="text-sky-300 hover:text-sky-200">partner@0xsac.com</a>
-    </p>
-  </section>
-
-  <section class="mt-16">
-    <div class="flex items-end justify-between gap-4">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-300">Technical briefings</p>
-        <h2 class="mt-2 text-2xl font-semibold text-white">Detection and telemetry analysis</h2>
+      <div class="text-xs font-mono text-sky-400">
+        Contact: <a href="mailto:partner@0xsac.com" class="underline">partner@0xsac.com</a>
       </div>
-      <a href="/briefings/" class="text-sm text-slate-300 hover:text-emerald-300">View all briefings</a>
-    </div>
-    <div class="mt-6 grid gap-4 lg:grid-cols-3">
-      {briefings.map((briefing) => (
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/80 p-5">
-          <p class="text-xs uppercase tracking-[0.3em] text-emerald-300">{briefing.data.focus.join(' · ')}</p>
-          <h3 class="mt-3 text-xl font-semibold text-white">
-            <a href={`/briefings/${contentPath(briefing.id)}/`} class="hover:text-emerald-300">{briefing.data.title}</a>
-          </h3>
-          <p class="mt-3 text-sm text-slate-400">{briefing.data.description}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+    </section>
+
+    <!-- Clean, Simple Footer -->
+    <footer class="pt-8 border-t border-slate-800 text-xs font-mono text-slate-600 flex justify-between">
+      <span>0xSac &bull; Sacramento, CA</span>
+      <span>Technical Cyber Exercises</span>
+    </footer>
+  </div>
 </BaseLayout>
