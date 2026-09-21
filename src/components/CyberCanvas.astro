@@ -31,8 +31,11 @@
     };
 
     const palette = ['#38bdf8', '#34d399'];
+    const cyanRgb = toRgb(palette[0]);
+    const emeraldRgb = toRgb(palette[1]);
     const nodes = Array.from({ length: nodeCount }, () => {
       const color = Math.random() < 0.18 ? palette[1] : palette[0];
+      const rgb = toRgb(color);
       return {
         x: 0,
         y: 0,
@@ -40,7 +43,8 @@
         vy: (Math.random() - 0.5) * 0.9,
         drift: (Math.random() - 0.5) * 0.025,
         radius: Math.random() * 1.6 + 1,
-        color
+        color,
+        rgb
       };
     });
 
@@ -117,8 +121,7 @@
           node.y = Math.min(height - node.radius, Math.max(node.radius, node.y));
         }
 
-        const nodeRgb = toRgb(node.color);
-        ctx.fillStyle = `rgba(${nodeRgb.r}, ${nodeRgb.g}, ${nodeRgb.b}, 0.85)`;
+        ctx.fillStyle = `rgba(${node.rgb.r}, ${node.rgb.g}, ${node.rgb.b}, 0.85)`;
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -131,8 +134,8 @@
           if (distance > connectDistance) continue;
 
           const alpha = (1 - distance / connectDistance) * 0.2;
-          const linkColor = Math.random() < 0.15 ? palette[1] : palette[0];
-          const linkRgb = toRgb(linkColor);
+          const useEmerald = node.color === palette[1] || peer.color === palette[1];
+          const linkRgb = useEmerald ? emeraldRgb : cyanRgb;
           ctx.strokeStyle = `rgba(${linkRgb.r}, ${linkRgb.g}, ${linkRgb.b}, ${alpha})`;
           ctx.lineWidth = 0.75;
           ctx.beginPath();
