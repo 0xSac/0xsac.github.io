@@ -34,26 +34,26 @@ const canonicalUrl = new URL(canonical, Astro.site ?? 'https://0xsac.github.io')
     <meta name="twitter:card" content="summary_large_image" />
     {ldJson && <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />}
   </head>
-  <body class="min-h-screen bg-slate-950 text-slate-100 antialiased">
+  <body class="min-h-screen bg-[#0B0F19] text-slate-100 antialiased">
     <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-8 sm:px-10 lg:px-12">
       <header class="mb-10 flex flex-col gap-6 border-b border-emerald-500/20 pb-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <a href="/" class="text-2xl font-semibold tracking-[0.25em] text-emerald-300">0xSac</a>
           <p class="mt-2 max-w-2xl text-sm text-slate-400">
-            Sacramento cyber tradecraft, scenario injects, and detection engineering reps.
+            Northern California cyber exercises, detection engineering, and attack-path validation.
           </p>
         </div>
         <nav aria-label="Primary" class="flex gap-4 text-sm text-slate-300">
           <a href="/exercises/" class="hover:text-emerald-300">Exercises</a>
           <a href="/briefings/" class="hover:text-emerald-300">Briefings</a>
-          <a href="https://github.com/0xSac/0xsac.github.io/issues" class="hover:text-emerald-300">Contribute</a>
+          <a href="/#partners" class="hover:text-emerald-300">Partners</a>
         </nav>
       </header>
       <main class="flex-1">
         <slot />
       </main>
       <footer class="mt-12 border-t border-emerald-500/20 pt-6 text-sm text-slate-500">
-        <p>0xSac Community Working Group // Practical keyboard reps beat check-the-box compliance reviews every time.</p>
+        <p>0xSac // Active staging for practitioner-led cyber exercises and detection engineering reps.</p>
       </footer>
     </div>
   </body>
