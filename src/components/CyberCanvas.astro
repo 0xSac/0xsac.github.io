@@ -1,122 +1,167 @@
-<canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none -z-10 w-full h-full"></canvas>
+<canvas
+  id="cyber-canvas"
+  class="fixed inset-0 pointer-events-none w-full h-full"
+  style="z-index: 1; opacity: 0.35;"
+></canvas>
 
-<script>
-  function initCyberCanvas() {
-    const canvas = document.getElementById('cyber-canvas') as HTMLCanvasElement | null;
-    if (!canvas || canvas.dataset.initialized === 'true') return;
+<script is:inline>
+  (() => {
+    const canvas = document.getElementById('cyber-canvas');
+    if (!(canvas instanceof HTMLCanvasElement) || canvas.dataset.initialized === 'true') return;
     canvas.dataset.initialized = 'true';
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const mouse = { x: -9999, y: -9999, active: false };
+    const nodeCount = 72;
+    const edgeBounceDamping = 0.995;
+    const maxSpeed = 1.35;
+    const repulseRadius = 140;
+    const connectDistance = 150;
     let width = 0;
     let height = 0;
-    const mouse = { x: -1000, y: -1000 };
+    let animationId = 0;
 
-    type Particle = {
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
+    const toRgb = (hex) => {
+      const parsed = hex.replace('#', '');
+      const full = parsed.length === 3 ? parsed.split('').map((c) => c + c).join('') : parsed;
+      const value = parseInt(full, 16);
+      return { r: (value >> 16) & 255, g: (value >> 8) & 255, b: value & 255 };
     };
 
-    const resize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+    const palette = ['#38bdf8', '#34d399'];
+    const cyanRgb = toRgb(palette[0]);
+    const emeraldRgb = toRgb(palette[1]);
+    const nodes = Array.from({ length: nodeCount }, () => {
+      const color = Math.random() < 0.18 ? palette[1] : palette[0];
+      const rgb = toRgb(color);
+      return {
+        x: 0,
+        y: 0,
+        vx: (Math.random() - 0.5) * 0.9,
+        vy: (Math.random() - 0.5) * 0.9,
+        drift: (Math.random() - 0.5) * 0.025,
+        radius: Math.random() * 1.6 + 1,
+        color,
+        rgb
+      };
+    });
+
+    const setSize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      for (const node of nodes) {
+        if (node.x === 0 && node.y === 0) {
+          node.x = Math.random() * width;
+          node.y = Math.random() * height;
+        } else {
+          node.x = Math.min(Math.max(node.radius, node.x), width - node.radius);
+          node.y = Math.min(Math.max(node.radius, node.y), height - node.radius);
+        }
+      }
     };
 
-    resize();
-    window.addEventListener('resize', resize);
-    window.addEventListener('mousemove', (event) => {
+    const setMouse = (event) => {
       mouse.x = event.clientX;
       mouse.y = event.clientY;
-    });
-    window.addEventListener('mouseout', () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
-    });
-
-    const particles: Particle[] = Array.from({ length: 70 }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.8,
-      vy: (Math.random() - 0.5) * 0.8,
-      radius: Math.random() * 1.6 + 1
-    }));
-
-    const maxSpeed = 1.4;
-    const repulseRadius = 130;
-    const connectionDistance = 120;
-
-    const updateParticle = (p: Particle) => {
-      const dx = p.x - mouse.x;
-      const dy = p.y - mouse.y;
-      const dist = Math.hypot(dx, dy);
-
-      if (dist < repulseRadius && dist > 0.001) {
-        const strength = ((repulseRadius - dist) / repulseRadius) * 0.08;
-        p.vx += (dx / dist) * strength;
-        p.vy += (dy / dist) * strength;
-      }
-
-      p.vx *= 0.992;
-      p.vy *= 0.992;
-
-      const speed = Math.hypot(p.vx, p.vy);
-      if (speed > maxSpeed) {
-        p.vx = (p.vx / speed) * maxSpeed;
-        p.vy = (p.vy / speed) * maxSpeed;
-      }
-
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x <= p.radius || p.x >= width - p.radius) {
-        p.vx *= -1;
-        p.x = Math.min(width - p.radius, Math.max(p.radius, p.x));
-      }
-      if (p.y <= p.radius || p.y >= height - p.radius) {
-        p.vy *= -1;
-        p.y = Math.min(height - p.radius, Math.max(p.radius, p.y));
-      }
+      mouse.active = true;
     };
 
-    const draw = () => {
+    const clearMouse = () => {
+      mouse.x = -9999;
+      mouse.y = -9999;
+      mouse.active = false;
+    };
+
+    const drawFrame = () => {
       ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = 'rgba(56, 189, 248, 0.85)';
 
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        updateParticle(p);
+      for (let i = 0; i < nodes.length; i += 1) {
+        const node = nodes[i];
+        node.vx += node.drift;
+        node.vy += node.drift * 0.85;
 
+        if (mouse.active) {
+          const dx = node.x - mouse.x;
+          const dy = node.y - mouse.y;
+          const distance = Math.hypot(dx, dy) || 1;
+          if (distance < repulseRadius) {
+            const force = ((repulseRadius - distance) / repulseRadius) * 0.11;
+            node.vx += (dx / distance) * force;
+            node.vy += (dy / distance) * force;
+          }
+        }
+
+        node.vx *= edgeBounceDamping;
+        node.vy *= edgeBounceDamping;
+
+        const speed = Math.hypot(node.vx, node.vy);
+        if (speed > maxSpeed) {
+          node.vx = (node.vx / speed) * maxSpeed;
+          node.vy = (node.vy / speed) * maxSpeed;
+        }
+
+        node.x += node.vx;
+        node.y += node.vy;
+
+        if (node.x <= node.radius || node.x >= width - node.radius) {
+          node.vx *= -1;
+          node.x = Math.min(width - node.radius, Math.max(node.radius, node.x));
+        }
+        if (node.y <= node.radius || node.y >= height - node.radius) {
+          node.vy *= -1;
+          node.y = Math.min(height - node.radius, Math.max(node.radius, node.y));
+        }
+
+        ctx.fillStyle = `rgba(${node.rgb.r}, ${node.rgb.g}, ${node.rgb.b}, 0.85)`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
 
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const d = Math.hypot(p.x - p2.x, p.y - p2.y);
-          if (d < connectionDistance) {
-            const alpha = (1 - d / connectionDistance) * 0.12;
-            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
-            ctx.lineWidth = 0.7;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.stroke();
-          }
+        for (let j = i + 1; j < nodes.length; j += 1) {
+          const peer = nodes[j];
+          const linkDx = node.x - peer.x;
+          const linkDy = node.y - peer.y;
+          const distance = Math.hypot(linkDx, linkDy);
+          if (distance > connectDistance) continue;
+
+          const alpha = (1 - distance / connectDistance) * 0.2;
+          const useEmerald = node.color === palette[1] || peer.color === palette[1];
+          const linkRgb = useEmerald ? emeraldRgb : cyanRgb;
+          ctx.strokeStyle = `rgba(${linkRgb.r}, ${linkRgb.g}, ${linkRgb.b}, ${alpha})`;
+          ctx.lineWidth = 0.75;
+          ctx.beginPath();
+          ctx.moveTo(node.x, node.y);
+          ctx.lineTo(peer.x, peer.y);
+          ctx.stroke();
         }
       }
 
-      requestAnimationFrame(draw);
+      animationId = requestAnimationFrame(drawFrame);
     };
 
-    draw();
-  }
+    const cleanup = () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', setSize);
+      window.removeEventListener('mousemove', setMouse);
+      window.removeEventListener('mouseleave', clearMouse);
+      window.removeEventListener('mouseout', clearMouse);
+    };
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCyberCanvas);
-  }
-  initCyberCanvas();
+    setSize();
+    window.addEventListener('resize', setSize, { passive: true });
+    window.addEventListener('mousemove', setMouse, { passive: true });
+    window.addEventListener('mouseleave', clearMouse, { passive: true });
+    window.addEventListener('mouseout', clearMouse, { passive: true });
+    window.addEventListener('beforeunload', cleanup, { once: true });
+    drawFrame();
+  })();
 </script>
