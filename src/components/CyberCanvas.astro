@@ -1,167 +1,202 @@
 <canvas
   id="cyber-canvas"
-  class="fixed inset-0 pointer-events-none -z-10 w-full h-full"
-  style="opacity: 0.35;"
+  class="fixed inset-0 pointer-events-none w-full h-full"
+  style="z-index: 1; opacity: 0.4;"
 ></canvas>
 
 <script is:inline>
   (() => {
+    if (typeof window === 'undefined') return;
+
+    const cleanupKey = '__cyberCanvasCleanup__';
+    const existingCleanup = window[cleanupKey];
+    if (typeof existingCleanup === 'function') existingCleanup();
+
     const canvas = document.getElementById('cyber-canvas');
-    if (!(canvas instanceof HTMLCanvasElement) || canvas.dataset.initialized === 'true') return;
-    canvas.dataset.initialized = 'true';
+    if (!(canvas instanceof HTMLCanvasElement)) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    const context = canvas.getContext('2d');
+    if (!context) return;
 
-    const mouse = { x: -9999, y: -9999, active: false };
+    const mouse = { x: -9999, y: -9999, radius: 140, active: false };
+    const palette = { cyan: '#38bdf8', emerald: '#34d399' };
+    const connectionDistance = 130;
     const nodeCount = 72;
-    const edgeBounceDamping = 0.995;
-    const maxSpeed = 1.35;
-    const repulseRadius = 140;
-    const connectDistance = 150;
-    let width = 0;
-    let height = 0;
-    let animationId = 0;
-
-    const toRgb = (hex) => {
-      const parsed = hex.replace('#', '');
-      const full = parsed.length === 3 ? parsed.split('').map((c) => c + c).join('') : parsed;
-      const value = parseInt(full, 16);
-      return { r: (value >> 16) & 255, g: (value >> 8) & 255, b: value & 255 };
-    };
-
-    const palette = ['#38bdf8', '#34d399'];
-    const cyanRgb = toRgb(palette[0]);
-    const emeraldRgb = toRgb(palette[1]);
+    const maxSpeed = 1.2;
     const nodes = Array.from({ length: nodeCount }, () => {
-      const color = Math.random() < 0.18 ? palette[1] : palette[0];
-      const rgb = toRgb(color);
+      const color = Math.random() < 0.2 ? palette.emerald : palette.cyan;
       return {
         x: 0,
         y: 0,
         vx: (Math.random() - 0.5) * 0.9,
         vy: (Math.random() - 0.5) * 0.9,
-        drift: (Math.random() - 0.5) * 0.025,
-        radius: Math.random() * 1.6 + 1,
-        color,
-        rgb
+        radius: Math.random() * 1.8 + 1,
+        color
       };
     });
 
-    const setSize = () => {
+    let width = 0;
+    let height = 0;
+    let animationFrame = 0;
+
+    const toRgb = (hex) => {
+      const value = hex.replace('#', '');
+      const normalized = value.length === 3
+        ? value.split('').map((part) => part + part).join('')
+        : value;
+      const parsed = Number.parseInt(normalized, 16);
+      return {
+        r: (parsed >> 16) & 255,
+        g: (parsed >> 8) & 255,
+        b: parsed & 255
+      };
+    };
+
+    const cyanRgb = toRgb(palette.cyan);
+    const emeraldRgb = toRgb(palette.emerald);
+
+    const setCanvasSize = () => {
       width = window.innerWidth;
       height = window.innerHeight;
-      const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-      canvas.width = Math.floor(width * dpr);
-      canvas.height = Math.floor(height * dpr);
+      const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = Math.floor(width * devicePixelRatio);
+      canvas.height = Math.floor(height * devicePixelRatio);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
 
       for (const node of nodes) {
         if (node.x === 0 && node.y === 0) {
           node.x = Math.random() * width;
           node.y = Math.random() * height;
-        } else {
-          node.x = Math.min(Math.max(node.radius, node.x), width - node.radius);
-          node.y = Math.min(Math.max(node.radius, node.y), height - node.radius);
+          continue;
         }
+
+        node.x = Math.min(Math.max(node.radius, node.x), width - node.radius);
+        node.y = Math.min(Math.max(node.radius, node.y), height - node.radius);
       }
     };
 
-    const setMouse = (event) => {
+    const handlePointerMove = (event) => {
       mouse.x = event.clientX;
       mouse.y = event.clientY;
       mouse.active = true;
     };
 
-    const clearMouse = () => {
+    const clearPointer = () => {
       mouse.x = -9999;
       mouse.y = -9999;
       mouse.active = false;
     };
 
-    const drawFrame = () => {
-      ctx.clearRect(0, 0, width, height);
+    const updateNode = (node) => {
+      if (mouse.active) {
+        const dx = node.x - mouse.x;
+        const dy = node.y - mouse.y;
+        const distance = Math.hypot(dx, dy) || 1;
 
-      for (let i = 0; i < nodes.length; i += 1) {
-        const node = nodes[i];
-        node.vx += node.drift;
-        node.vy += node.drift * 0.85;
-
-        if (mouse.active) {
-          const dx = node.x - mouse.x;
-          const dy = node.y - mouse.y;
-          const distance = Math.hypot(dx, dy) || 1;
-          if (distance < repulseRadius) {
-            const force = ((repulseRadius - distance) / repulseRadius) * 0.11;
-            node.vx += (dx / distance) * force;
-            node.vy += (dy / distance) * force;
-          }
-        }
-
-        node.vx *= edgeBounceDamping;
-        node.vy *= edgeBounceDamping;
-
-        const speed = Math.hypot(node.vx, node.vy);
-        if (speed > maxSpeed) {
-          node.vx = (node.vx / speed) * maxSpeed;
-          node.vy = (node.vy / speed) * maxSpeed;
-        }
-
-        node.x += node.vx;
-        node.y += node.vy;
-
-        if (node.x <= node.radius || node.x >= width - node.radius) {
-          node.vx *= -1;
-          node.x = Math.min(width - node.radius, Math.max(node.radius, node.x));
-        }
-        if (node.y <= node.radius || node.y >= height - node.radius) {
-          node.vy *= -1;
-          node.y = Math.min(height - node.radius, Math.max(node.radius, node.y));
-        }
-
-        ctx.fillStyle = `rgba(${node.rgb.r}, ${node.rgb.g}, ${node.rgb.b}, 0.85)`;
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        for (let j = i + 1; j < nodes.length; j += 1) {
-          const peer = nodes[j];
-          const linkDx = node.x - peer.x;
-          const linkDy = node.y - peer.y;
-          const distance = Math.hypot(linkDx, linkDy);
-          if (distance > connectDistance) continue;
-
-          const alpha = (1 - distance / connectDistance) * 0.2;
-          const useEmerald = node.color === palette[1] || peer.color === palette[1];
-          const linkRgb = useEmerald ? emeraldRgb : cyanRgb;
-          ctx.strokeStyle = `rgba(${linkRgb.r}, ${linkRgb.g}, ${linkRgb.b}, ${alpha})`;
-          ctx.lineWidth = 0.75;
-          ctx.beginPath();
-          ctx.moveTo(node.x, node.y);
-          ctx.lineTo(peer.x, peer.y);
-          ctx.stroke();
+        if (distance < mouse.radius) {
+          const force = ((mouse.radius - distance) / mouse.radius) * 0.08;
+          node.vx += (dx / distance) * force;
+          node.vy += (dy / distance) * force;
         }
       }
 
-      animationId = requestAnimationFrame(drawFrame);
+      const speed = Math.hypot(node.vx, node.vy);
+      if (speed > maxSpeed) {
+        node.vx = (node.vx / speed) * maxSpeed;
+        node.vy = (node.vy / speed) * maxSpeed;
+      }
+
+      node.x += node.vx;
+      node.y += node.vy;
+
+      if (node.x <= node.radius || node.x >= width - node.radius) {
+        node.vx *= -1;
+        node.x = Math.min(width - node.radius, Math.max(node.radius, node.x));
+      }
+
+      if (node.y <= node.radius || node.y >= height - node.radius) {
+        node.vy *= -1;
+        node.y = Math.min(height - node.radius, Math.max(node.radius, node.y));
+      }
+    };
+
+    const drawNode = (node) => {
+      const rgb = node.color === palette.emerald ? emeraldRgb : cyanRgb;
+      context.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.82)`;
+      context.beginPath();
+      context.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+      context.fill();
+    };
+
+    const drawConnections = () => {
+      for (let index = 0; index < nodes.length; index += 1) {
+        const node = nodes[index];
+
+        for (let peerIndex = index + 1; peerIndex < nodes.length; peerIndex += 1) {
+          const peer = nodes[peerIndex];
+          const dx = node.x - peer.x;
+          const dy = node.y - peer.y;
+          const distance = Math.hypot(dx, dy);
+
+          if (distance >= connectionDistance) continue;
+
+          const alpha = (1 - distance / connectionDistance) * 0.22;
+          const rgb = node.color === palette.emerald || peer.color === palette.emerald
+            ? emeraldRgb
+            : cyanRgb;
+
+          context.strokeStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
+          context.lineWidth = 0.8;
+          context.beginPath();
+          context.moveTo(node.x, node.y);
+          context.lineTo(peer.x, peer.y);
+          context.stroke();
+        }
+      }
+    };
+
+    const render = () => {
+      context.clearRect(0, 0, width, height);
+
+      for (const node of nodes) {
+        updateNode(node);
+        drawNode(node);
+      }
+
+      drawConnections();
+      animationFrame = window.requestAnimationFrame(render);
     };
 
     const cleanup = () => {
-      cancelAnimationFrame(animationId);
-      window.removeEventListener('resize', setSize);
-      window.removeEventListener('mousemove', setMouse);
-      window.removeEventListener('mouseleave', clearMouse);
-      window.removeEventListener('mouseout', clearMouse);
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener('resize', setCanvasSize);
+      window.removeEventListener('mousemove', handlePointerMove);
+      window.removeEventListener('mouseleave', clearPointer);
+      window.removeEventListener('mouseout', clearPointer);
+      window.removeEventListener('pagehide', cleanup);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener('astro:before-swap', cleanup);
+      delete window[cleanupKey];
     };
 
-    setSize();
-    window.addEventListener('resize', setSize, { passive: true });
-    window.addEventListener('mousemove', setMouse, { passive: true });
-    window.addEventListener('mouseleave', clearMouse, { passive: true });
-    window.addEventListener('mouseout', clearMouse, { passive: true });
-    window.addEventListener('beforeunload', cleanup, { once: true });
-    drawFrame();
+    const handleVisibilityChange = () => {
+      if (document.hidden) clearPointer();
+    };
+
+    window[cleanupKey] = cleanup;
+
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize, { passive: true });
+    window.addEventListener('mousemove', handlePointerMove, { passive: true });
+    window.addEventListener('mouseleave', clearPointer, { passive: true });
+    window.addEventListener('mouseout', clearPointer, { passive: true });
+    window.addEventListener('pagehide', cleanup);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener('astro:before-swap', cleanup, { once: true });
+
+    render();
   })();
 </script>
