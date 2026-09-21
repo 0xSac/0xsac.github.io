@@ -1,59 +1,53 @@
 ---
-import '../styles/global.css';
+// src/layouts/BaseLayout.astro
+import CyberCanvas from '../components/CyberCanvas.astro';
 
-interface Props {
+export interface Props {
   title: string;
-  description: string;
-  canonical?: string;
-  ldJson?: Record<string, unknown> | Array<Record<string, unknown>>;
+  description?: string;
 }
 
-const {
-  title,
-  description,
-  canonical = Astro.url.pathname,
-  ldJson,
-} = Astro.props;
-
-const canonicalUrl = new URL(canonical, Astro.site ?? 'https://0xsac.github.io').toString();
+const { title, description = "Cyber exercise blueprints and hands-on scenarios." } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en" class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500/30 selection:text-sky-200">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta name="generator" content={Astro.generator} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
-    {ldJson && <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />}
+    <link rel="canonical" href="https://0xsac.com" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="min-h-screen bg-[#0B0F19] text-slate-100 antialiased">
-    <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-6 py-8 sm:px-10 lg:px-12">
-      <header class="mb-10 flex flex-col gap-6 border-b border-emerald-500/20 pb-6 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <a href="/" class="text-2xl font-semibold tracking-[0.25em] text-emerald-300">0xSac</a>
-          <p class="mt-2 max-w-2xl text-sm text-slate-400">
-            Northern California cyber exercises, detection engineering, and attack-path validation.
-          </p>
-        </div>
-        <nav aria-label="Primary" class="flex gap-4 text-sm text-slate-300">
-          <a href="/exercises/" class="hover:text-emerald-300">Exercises</a>
-          <a href="/briefings/" class="hover:text-emerald-300">Briefings</a>
-          <a href="/#partners" class="hover:text-emerald-300">Partners</a>
+  <body class="relative min-h-screen bg-slate-950 overflow-x-hidden flex flex-col justify-between">
+    <!-- Ambient Radial Glow & Moving Objects Canvas -->
+    <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-950/20 via-slate-950 to-slate-950"></div>
+    <CyberCanvas />
+
+    <!-- Site Wrapper -->
+    <div class="relative z-10 max-w-4xl mx-auto w-full px-6 py-10 flex-grow flex flex-col justify-between">
+      <!-- Unified Header -->
+      <header class="flex justify-between items-center pb-6 border-b border-slate-800/60 backdrop-blur-sm">
+        <a href="/" class="text-xl font-mono font-bold tracking-tight text-sky-400 hover:text-sky-300 transition-colors">
+          0xSac
+        </a>
+        <nav class="space-x-6 text-sm font-mono text-slate-400">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <a href="/about" class="hover:text-white transition-colors">About</a>
+          <a href="/resources" class="hover:text-white transition-colors">Resources</a>
         </nav>
       </header>
-      <main class="flex-1">
+
+      <!-- Main Injected Content -->
+      <main class="py-10 flex-grow">
         <slot />
       </main>
-      <footer class="mt-12 border-t border-emerald-500/20 pt-6 text-sm text-slate-500">
-        <p>0xSac // Active staging for practitioner-led cyber exercises and detection engineering reps.</p>
+
+      <!-- Clean Unified Footer -->
+      <footer class="pt-8 border-t border-slate-800/60 text-xs font-mono text-slate-500 flex justify-between items-center">
+        <span>0xSac &bull; Sacramento, CA</span>
+        <span>Technical Blueprints</span>
       </footer>
     </div>
   </body>
