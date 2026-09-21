@@ -1,72 +1,75 @@
 ---
+// src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="0xSac | Cyber Exercises & Technical Blueprints">
-  <div class="max-w-4xl mx-auto px-6 py-16 space-y-16">
+  <div class="space-y-16">
     
-    <!-- Top Navigation -->
-    <header class="flex justify-between items-center pb-6 border-b border-slate-800">
-      <div class="text-xl font-mono font-bold text-sky-400">0xSac</div>
-      <nav class="space-x-6 text-sm font-mono text-slate-400">
-        <a href="/" class="text-white">Home</a>
-        <a href="/about" class="hover:text-white">About</a>
-        <a href="/resources" class="hover:text-white">Resources</a>
-      </nav>
-    </header>
-
-    <!-- Clean Hero -->
-    <section class="space-y-6 pt-6">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/20">
+    <!-- Hero Section -->
+    <section class="space-y-6 pt-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-sky-500/10 text-sky-400 border border-sky-500/30 backdrop-blur-sm shadow-[0_0_15px_rgba(56,189,248,0.15)]">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
         <span>Status: Staging — Date TBD</span>
       </div>
+
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
         Cyber exercise blueprints and hands-on scenarios.
       </h1>
+      
       <p class="text-slate-400 text-lg leading-relaxed max-w-2xl">
         0xSac develops realistic threat scenarios, detection validation guides, and range blueprints for security engineers and technical teams.
       </p>
     </section>
 
-    <!-- Core Focus Areas (Minimal Headers) -->
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="p-5 bg-slate-900 border border-slate-800 rounded">
-        <h2 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Exercise Runbooks</h2>
+    <!-- 3 Core Focus Pillars (Glassmorphism Cards) -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div class="p-6 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 hover:border-sky-500/40 rounded-xl transition-all duration-300 group">
+        <h2 class="text-xs font-bold text-sky-400 font-mono uppercase tracking-widest group-hover:text-sky-300">
+          Exercise Runbooks
+        </h2>
         <p class="text-xs text-slate-400 mt-2 leading-relaxed">
           Step-by-step emulation paths mapped to real adversary tradecraft.
         </p>
       </div>
-      <div class="p-5 bg-slate-900 border border-slate-800 rounded">
-        <h2 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Detection Logic</h2>
+
+      <div class="p-6 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 hover:border-sky-500/40 rounded-xl transition-all duration-300 group">
+        <h2 class="text-xs font-bold text-sky-400 font-mono uppercase tracking-widest group-hover:text-sky-300">
+          Detection Logic
+        </h2>
         <p class="text-xs text-slate-400 mt-2 leading-relaxed">
           Production-ready Sigma rules and telemetry queries to test logging pipelines.
         </p>
       </div>
-      <div class="p-5 bg-slate-900 border border-slate-800 rounded">
-        <h2 class="text-sm font-bold text-white font-mono uppercase tracking-wider">Range Blueprints</h2>
+
+      <div class="p-6 bg-slate-900/40 backdrop-blur-md border border-slate-800/80 hover:border-sky-500/40 rounded-xl transition-all duration-300 group">
+        <h2 class="text-xs font-bold text-sky-400 font-mono uppercase tracking-widest group-hover:text-sky-300">
+          Range Blueprints
+        </h2>
         <p class="text-xs text-slate-400 mt-2 leading-relaxed">
           Vendor-neutral architectures for testing in private cloud environments.
         </p>
       </div>
     </section>
 
-    <!-- Upcoming Scenarios -->
-    <section class="space-y-6 pt-4 border-t border-slate-800">
+    <!-- Scenarios in Development -->
+    <section class="space-y-6 pt-4 border-t border-slate-800/60">
       <div class="flex justify-between items-baseline">
-        <h2 class="text-lg font-bold text-white font-mono">Current Scenarios in Development</h2>
+        <h2 class="text-sm font-mono uppercase tracking-wider text-slate-300">Current Scenarios in Development</h2>
         <span class="text-xs font-mono text-slate-500">In Design</span>
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="p-5 bg-slate-900/50 border border-slate-800 rounded">
-          <div class="text-xs font-mono text-sky-400 uppercase">Identity</div>
+        <div class="p-5 bg-slate-900/30 backdrop-blur-sm border border-slate-800/80 hover:border-slate-700 rounded-lg transition-colors">
+          <div class="text-xs font-mono text-sky-400 uppercase tracking-wide">Identity</div>
           <h3 class="text-base font-semibold text-white mt-1">Cloud Token Replay & IAM Escalation</h3>
           <p class="text-xs text-slate-400 mt-2 leading-relaxed">
             Validation workflow focused on token theft, federated identity trust abuse, and telemetry alerting.
           </p>
         </div>
-        <div class="p-5 bg-slate-900/50 border border-slate-800 rounded">
-          <div class="text-xs font-mono text-sky-400 uppercase">Internal Network</div>
+
+        <div class="p-5 bg-slate-900/30 backdrop-blur-sm border border-slate-800/80 hover:border-slate-700 rounded-lg transition-colors">
+          <div class="text-xs font-mono text-sky-400 uppercase tracking-wide">Internal Network</div>
           <h3 class="text-base font-semibold text-white mt-1">RPC & Lateral Movement Validation</h3>
           <p class="text-xs text-slate-400 mt-2 leading-relaxed">
             Telemetry collection and detection verification for host-to-host movement within segmented enclaves.
@@ -75,21 +78,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </section>
 
-    <!-- Simple Partner / Sponsor Placeholder -->
-    <section class="p-6 bg-slate-900/30 border border-slate-800 rounded space-y-3">
-      <h2 class="text-sm font-bold text-white font-mono uppercase">Partnerships & Support</h2>
+    <!-- Simple Sponsorship & Contact Placeholder -->
+    <section class="p-6 bg-slate-900/20 backdrop-blur-sm border border-slate-800/80 rounded-xl space-y-3">
+      <h2 class="text-xs font-bold text-slate-300 font-mono uppercase tracking-widest">Partnerships & Support</h2>
       <p class="text-xs text-slate-400 leading-relaxed">
-        We partner with cloud providers, tool vendors, and regional organizations to sponsor compute and range infrastructure. If you are interested in supporting upcoming exercises:
+        We partner with cloud providers, tool vendors, and regional organizations to sponsor compute and range infrastructure.
       </p>
-      <div class="text-xs font-mono text-sky-400">
-        Contact: <a href="mailto:partner@0xsac.com" class="underline">partner@0xsac.com</a>
+      <div class="text-xs font-mono text-sky-400 pt-1">
+        Contact: <a href="mailto:partner@0xsac.com" class="hover:text-sky-300 underline underline-offset-4">partner@0xsac.com</a>
       </div>
     </section>
 
-    <!-- Clean, Simple Footer -->
-    <footer class="pt-8 border-t border-slate-800 text-xs font-mono text-slate-600 flex justify-between">
-      <span>0xSac &bull; Sacramento, CA</span>
-      <span>Technical Cyber Exercises</span>
-    </footer>
   </div>
 </BaseLayout>
