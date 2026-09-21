@@ -1,4 +1,4 @@
-<canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none z-0 w-full h-full opacity-40"></canvas>
+<canvas id="cyber-canvas" class="fixed inset-0 pointer-events-none -z-10 w-full h-full"></canvas>
 
 <script>
   function initCyberCanvas() {
@@ -98,7 +98,7 @@
           const p2 = particles[j];
           const d = Math.hypot(p.x - p2.x, p.y - p2.y);
           if (d < connectionDistance) {
-            const alpha = (1 - d / connectionDistance) * 0.45;
+            const alpha = (1 - d / connectionDistance) * 0.12;
             ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
             ctx.lineWidth = 0.7;
             ctx.beginPath();
