@@ -25,7 +25,10 @@
     }
   });
 
-  window.matchMedia('(min-width: 768px)').addEventListener('change', function (mq) {
+  var desktop = window.matchMedia('(min-width: 768px)');
+  var onBreakpoint = function (mq) {
     if (mq.matches) setOpen(false);
-  });
+  };
+  if (desktop.addEventListener) desktop.addEventListener('change', onBreakpoint);
+  else if (desktop.addListener) desktop.addListener(onBreakpoint);
 })();
