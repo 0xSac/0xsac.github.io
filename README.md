@@ -33,7 +33,8 @@ npm run preview
 - `/schedule.html` — 1-Day Pilot operational tempo (0800–1730)
 - `/governance.html` — Non-profit charter, technical separation, ethics, sponsorship prospectus
 - `/about` — About (Vision, Mission, and Operational Boundaries) — Astro
-- `/resources` — Technical notes, detection guides, and range architecture patterns — Astro
+- `/resources.html` — Pre-event operator jump-kits, executive governance guides, and copy/download resilience starter templates
+- `/resources` — Static redirect to `/resources.html`, preserving existing resource links
 
 ## Inquiries
 

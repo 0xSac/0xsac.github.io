@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0xSAC // Readiness &amp; Field Resources</title>
+  <meta name="description" content="Pre-event operator jump-kits, executive governance guides, and downloadable resilience templates for both 0xSAC tracks." />
+  <link rel="canonical" href="https://0xsac.com/resources.html" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:title" content="0xSAC // Readiness &amp; Field Resources" />
+  <meta property="og:description" content="Prepare for Live-Fire & CTF or the Executive Decision Simulation with the pre-event field kit." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://0xsac.com/resources.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/tailwind-theme.js"></script>
+  <style>
+    [hidden] { display: none !important; }
+    .resource-card { min-width: 0; }
+    .resource-card pre { max-width: 100%; overflow-x: auto; border: 1px solid #27272a; border-radius: .5rem; background: #0a0a0a; padding: 1rem; font-size: .75rem; line-height: 1.7; color: #d4d4d8; }
+    .resource-card pre:focus-visible { outline: 2px solid #34d399; outline-offset: 3px; }
+    .resource-action, .filter-pill { border: 1px solid #3f3f46; border-radius: .375rem; padding: .5rem .75rem; font-family: ui-monospace, monospace; font-size: .75rem; color: #e4e4e7; }
+    .resource-action:hover, .filter-pill:hover { border-color: #34d399; color: #fff; }
+    .resource-action:focus-visible, .filter-pill:focus-visible { outline: 2px solid #34d399; outline-offset: 3px; }
+    .filter-pill[aria-pressed="true"] { border-color: #34d399; background: rgba(16,185,129,.1); color: #34d399; }
+  </style>
+</head>
+<body class="bg-ink text-zinc-200 font-sans antialiased min-h-screen flex flex-col selection:bg-term-cyan/30 selection:text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded focus:bg-term-cyan focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-black">Skip to main content</a>
+
+  <!-- ========== Site Header ========== -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-ink/85 backdrop-blur supports-[backdrop-filter]:bg-ink/70">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Primary">
+      <a href="/" class="group flex items-center gap-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan" aria-label="0xSAC home">
+        <span class="rounded border border-term-green/40 bg-term-green/10 px-1.5 py-0.5 font-mono text-xs font-bold text-term-green">0x</span>
+        <span class="font-mono text-lg font-bold tracking-tight text-white">0xSAC</span>
+      </a>
+      <div class="hidden items-center gap-1 lg:flex">
+        <span class="px-2 font-mono text-[11px] uppercase tracking-widest text-zinc-500" aria-hidden="true">Tracks:</span>
+        <a href="/livefire.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Live-Fire</a>
+        <a href="/executive.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Exec-EDS</a>
+        <span class="mx-2 h-5 w-px bg-zinc-800" aria-hidden="true"></span>
+        <a href="/schedule.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Schedule</a>
+        <a href="/governance.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Governance</a>
+        <a href="/resources.html" aria-current="page" class="rounded px-3 py-2 text-sm bg-zinc-800/70 text-white hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Resources</a>
+        <a href="/#register" class="ml-3 rounded-md bg-emerald-400 px-4 py-2 font-mono text-sm font-bold text-black shadow-glow-green hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Register / Portal</a>
+      </div>
+      <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-300 hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan lg:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-zinc-800 bg-ink lg:hidden">
+      <div class="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-6">
+        <p class="px-3 pb-1 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Tracks</p>
+        <a href="/livefire.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 1 — Live-Fire &amp; CTF</a>
+        <a href="/executive.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 2 — Executive Simulation</a>
+        <p class="px-3 pb-1 pt-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Event</p>
+        <a href="/schedule.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Schedule</a>
+        <a href="/governance.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Governance</a>
+        <a href="/resources.html" aria-current="page" class="block rounded bg-zinc-800 px-3 py-2 text-white hover:bg-zinc-800">Resources</a>
+        <a href="/#register" class="mt-3 block rounded-md bg-emerald-400 px-3 py-2.5 text-center font-mono font-bold text-black">Register / Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+    <section class="relative overflow-hidden border-b border-zinc-800/80" aria-labelledby="page-title">
+      <div class="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 sm:pt-20 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-wider text-emerald-400">// PRE-EVENT REPO &amp; OPERATIONAL FIELD KITS</p>
+        <h1 id="page-title" class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl"><span class="font-mono">0xSAC <span class="text-zinc-600">//</span></span> Readiness &amp; Field Resources</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400">Battle-tested playbooks, triage jump-kits, and executive templates to prepare your teams before stepping onto the proving ground.</p>
+        <div class="mt-6 flex flex-wrap gap-3 text-sm">
+          <a href="/livefire.html" class="rounded border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-emerald-400 hover:text-white focus-visible:outline focus-visible:outline-2">Track 1 // Operators &rarr;</a>
+          <a href="/executive.html" class="rounded border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-emerald-400 hover:text-white focus-visible:outline focus-visible:outline-2">Track 2 // Executive leadership &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div id="resource-filters" class="mb-6 flex flex-wrap gap-2" role="group" aria-label="Filter resources by category" hidden>
+        <button type="button" class="filter-pill" data-filter="all" aria-pressed="true" aria-controls="resource-grid">All</button>
+        <button type="button" class="filter-pill" data-filter="operator" aria-pressed="false" aria-controls="resource-grid">Operator Jump-Kits</button>
+        <button type="button" class="filter-pill" data-filter="executive" aria-pressed="false" aria-controls="resource-grid">Executive Governance</button>
+        <button type="button" class="filter-pill" data-filter="resilience" aria-pressed="false" aria-controls="resource-grid">Resilience Templates</button>
+      </div>
+      <p id="resource-status" class="mb-8 text-sm text-zinc-400" role="status" aria-live="polite" aria-atomic="true">9 resources // All categories</p>
+      <p id="action-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+
+      <div id="resource-grid" class="space-y-14">
+        <section data-category="operator" aria-labelledby="operator-title">
+          <p class="font-mono text-xs uppercase tracking-wider text-emerald-400">0x0100 // Hands-on Live-Fire &amp; CTF</p>
+          <h2 id="operator-title" class="mt-2 text-2xl font-bold text-white">Track 1 Operator Jump-Kit</h2>
+          <p class="mt-3 text-sm text-zinc-400">Use only on authorized exercise assets. Preserve evidence before changing hosts; never paste secrets or case artifacts into public channels.</p>
+          <div class="mt-6 grid items-start gap-6 lg:grid-cols-3">
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">01 // Baseline</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">Host Triage &amp; Hardening Baseline</h3>
+              <ul class="mt-4 list-disc space-y-3 pl-5 text-sm text-zinc-300">
+                <li><strong>Linux:</strong> Review <code>/etc/passwd</code> for unexpected UID 0 accounts; inspect sudoers and included files. Check auditd status, authentication logs, Nginx configuration and access/error logs.</li>
+                <li><strong>Active Directory:</strong> Review privileged membership, <code>krbtgt</code> rotation history, and duplicate or unexpected Kerberos SPNs. Coordinate any dual reset of krbtgt with the directory recovery lead; do not reset during triage.</li>
+                <li><strong>Sysmon:</strong> Correlate Event IDs <code>1</code> (process creation), <code>3</code> (network connection), and <code>11</code> (file creation). Network logging depends on the deployed configuration.</li>
+              </ul>
+              <pre class="mt-5" tabindex="0" aria-label="Read-only host triage commands"><code>awk -F: '$3 == 0 {print $1}' /etc/passwd
+sudo visudo -c
+sudo systemctl status auditd --no-pager
+sudo nginx -t
+
+# Windows: duplicate SPNs (authorized domain)
+setspn -X
+Get-WinEvent -FilterHashtable @{
+  LogName='Microsoft-Windows-Sysmon/Operational'
+  Id=1,3,11
+} -MaxEvents 50</code></pre>
+            </article>
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">02 // Evidence</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">DFIR &amp; Memory Analysis Cheatsheet</h3>
+              <p class="mt-4 text-sm text-zinc-300">Work from hashed copies of acquired memory and packet captures. Plugin availability depends on OS, symbols, and the installed Volatility 3 release; confirm with <code>vol.py --help</code>. Treat hashdump output as sensitive credential material.</p>
+              <pre class="mt-5" tabindex="0" aria-label="Volatility 3 memory analysis commands"><code>python vol.py -f memory.raw windows.pslist
+python vol.py -f memory.raw windows.sessions
+python vol.py -f memory.raw windows.hashdump</code></pre>
+              <pre class="mt-5" tabindex="0" aria-label="Packet analysis commands and display filters"><code># Zeek: process a local capture
+zeek -r incident.pcap
+zeek-cut id.orig_h id.resp_h service &lt; conn.log
+
+# Wireshark display filters
+dns.flags.response == 0
+tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0
+http.request
+tls.handshake.type == 1</code></pre>
+            </article>
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">03 // Local tooling</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">Operator Tooling Jump-Kit</h3>
+              <p class="mt-4 text-sm text-zinc-300">Local verification manifest: obtain tools from official publishers, verify signatures/checksums, record versions, and test offline before arrival. These links do not certify your installed binaries.</p>
+              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-emerald-400">
+                <li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysinternals-suite" class="underline underline-offset-4 hover:text-white">Sysinternals Suite</a> <span class="text-zinc-400">— process and autorun review</span></li>
+                <li><a href="https://www.kroll.com/en/services/cyber-risk/incident-response-litigation-support/kroll-artifact-parser-extractor-kape" class="underline underline-offset-4 hover:text-white">KAPE</a> <span class="text-zinc-400">— artifact collection</span></li>
+                <li><a href="https://docs.velociraptor.app/" class="underline underline-offset-4 hover:text-white">Velociraptor</a> <span class="text-zinc-400">— endpoint investigation</span></li>
+                <li><a href="https://curl.se/" class="underline underline-offset-4 hover:text-white">curl</a> / <a href="https://jqlang.org/" class="underline underline-offset-4 hover:text-white">jq</a> <span class="text-zinc-400">— HTTP and JSON inspection</span></li>
+                <li><a href="https://www.wireshark.org/download.html" class="underline underline-offset-4 hover:text-white">Wireshark</a> <span class="text-zinc-400">— packet analysis</span></li>
+              </ul>
+              <pre class="mt-5" tabindex="0" aria-label="Tool verification manifest"><code>Tool | Version | Publisher URL | SHA-256
+Sysinternals Suite | [record] | [record] | [record]
+KAPE               | [record] | [record] | [record]
+Velociraptor       | [record] | [record] | [record]
+curl / jq          | [record] | [record] | [record]
+Wireshark          | [record] | [record] | [record]
+
+Signature verified: [yes/no + verifier]
+Offline smoke test: [date + outcome]
+Exercise authorization: [scope + owner]</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section data-category="executive" aria-labelledby="executive-title">
+          <p class="font-mono text-xs uppercase tracking-wider text-emerald-400">0x0200 // EDS Leadership</p>
+          <h2 id="executive-title" class="mt-2 text-2xl font-bold text-white">Track 2 Executive Governance Toolkit</h2>
+          <p class="mt-3 text-sm text-zinc-400">Delivered in the language of executive governance, legal compliance, and enterprise resilience. Exercise references, not legal advice; counsel must confirm current law and entity-specific obligations.</p>
+          <div class="mt-6 grid items-start gap-6 lg:grid-cols-3">
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">04 // Notification timeline</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">California Breach Clock Guide</h3>
+              <ol class="mt-4 list-decimal space-y-3 pl-5 text-sm text-zinc-300">
+                <li><strong>Discovery:</strong> Record discovery time, evidence, affected services, data ownership, and counsel's notification assessment.</li>
+                <li><strong>Immediate coordination:</strong> Assign incident/legal leads; coordinate threat intake with <a href="https://www.caloes.ca.gov/office-of-the-director/operations/homeland-security/california-cybersecurity-integration-center/" class="text-emerald-400 underline underline-offset-4">Cal-CSIC</a>. Intake is not a substitute for statutory notices.</li>
+                <li><strong>Resident notice:</strong> Review <a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1798.82.&amp;lawCode=CIV" class="text-emerald-400 underline underline-offset-4">Civil Code § 1798.82</a>, including the 2026 30-calendar-day discovery deadline and permitted delays. Public agencies must separately assess § 1798.29.</li>
+                <li><strong>Attorney General:</strong> For notices to more than 500 California residents under § 1798.82, review the 15-calendar-day deadline after resident notification and <a href="https://oag.ca.gov/privacy/databreach/reporting" class="text-emerald-400 underline underline-offset-4">AG submission requirements</a>.</li>
+                <li><strong>Federal thresholds:</strong> Assess sector rules and <a href="https://www.cisa.gov/topics/cyber-threats-and-advisories/information-sharing/cyber-incident-reporting-critical-infrastructure-act-2022-circia" class="text-emerald-400 underline underline-offset-4">CISA/CIRCIA</a> coverage. The framework specifies 72 hours for covered incidents and 24 hours for ransom payments; verify final-rule effective dates and applicability before treating these as operative deadlines.</li>
+              </ol>
+              <pre class="mt-5" tabindex="0" aria-label="Breach timeline worksheet"><code>Discovery timestamp + timezone: [ ]
+Entity / applicable statute: [ ]
+Data types + affected residents: [ ]
+Counsel / decision owner: [ ]
+Resident notice deadline + basis: [ ]
+AG deadline + submission record: [ ]
+Cal-CSIC intake reference: [ ]
+Federal coverage + rule effective date: [ ]
+Permitted delay + legal basis: [ ]
+Next assessment / approver: [ ]</code></pre>
+            </article>
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">05 // Approved communications</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">Crisis Communications Holding Statements</h3>
+              <p class="mt-4 text-sm text-zinc-300">Replace placeholders with verified facts. Require counsel and communications approval; these statements do not replace legally required breach notices.</p>
+              <h4 class="mt-5 text-sm font-semibold text-white">Initial Anomaly Ingestion</h4>
+              <pre class="mt-3 whitespace-pre-wrap" tabindex="0" aria-label="Initial anomaly holding statement"><code>We are reviewing unusual activity affecting [service]. Our response team is assessing the situation. Current service availability is [verified status]. We will provide our next update at [time / channel].</code></pre>
+              <h4 class="mt-5 text-sm font-semibold text-white">Active Forensic Investigation</h4>
+              <pre class="mt-3 whitespace-pre-wrap" tabindex="0" aria-label="Active investigation holding statement"><code>We are investigating a cybersecurity incident involving [confirmed scope]. We have taken [verified containment action] and engaged [response partners]. The impact on personal information remains under assessment. For essential services, use [verified alternative]. Our next update will be [time / channel].</code></pre>
+              <h4 class="mt-5 text-sm font-semibold text-white">Confirmed Breach / Citizen Assistance</h4>
+              <pre class="mt-3 whitespace-pre-wrap" tabindex="0" aria-label="Confirmed breach holding statement"><code>Our investigation confirmed unauthorized access to [verified data / systems] during [confirmed period]. We are notifying affected individuals through [approved channel]. Assistance is available at [verified contact], including [approved support]. Please follow [verified protective steps]. We will update [official channel] at [time].</code></pre>
+            </article>
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">06 // Service continuity</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">Strategic Decision Rubric</h3>
+              <p class="mt-4 text-sm text-zinc-300">Compare network boundary severance against essential public safety service continuity. Record the accountable executive's decision, residual risk, and a time-bound reassessment.</p>
+              <div class="mt-5 overflow-x-auto" tabindex="0" role="region" aria-label="Containment decision criteria">
+                <table class="w-full text-left text-sm">
+                  <caption class="sr-only">Isolation versus controlled continuity decision matrix</caption>
+                  <thead class="text-emerald-400"><tr><th scope="col" class="p-2">Criterion</th><th scope="col" class="p-2">Sever boundary</th><th scope="col" class="p-2">Controlled continuity</th></tr></thead>
+                  <tbody class="text-zinc-300">
+                    <tr class="border-t border-zinc-800"><th scope="row" class="p-2">Active spread</th><td class="p-2">Confirmed propagation or exfiltration</td><td class="p-2">Bounded exposure; monitoring validated</td></tr>
+                    <tr class="border-t border-zinc-800"><th scope="row" class="p-2">Public safety</th><td class="p-2">Tested alternate service available</td><td class="p-2">Isolation threatens life-critical service; isolate affected segments</td></tr>
+                    <tr class="border-t border-zinc-800"><th scope="row" class="p-2">Recovery</th><td class="p-2">Trusted restore path and owner</td><td class="p-2">Manual fallback and rollback triggers staffed</td></tr>
+                    <tr class="border-t border-zinc-800"><th scope="row" class="p-2">Authority</th><td class="p-2">Executive approves outage impact</td><td class="p-2">Executive accepts documented residual risk</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <pre class="mt-5" tabindex="0" aria-label="Executive decision record"><code>Decision / timestamp: [ ]
+Verified facts / confidence: [ ]
+Options + public safety impact: [ ]
+Containment scope / exceptions: [ ]
+Legal + service owner input: [ ]
+Approver / accepted residual risk: [ ]
+Fallback / rollback trigger: [ ]
+Reassessment deadline / owner: [ ]</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section data-category="resilience" aria-labelledby="resilience-title">
+          <p class="font-mono text-xs uppercase tracking-wider text-emerald-400">0x0300 // Operational Resilience Downloads</p>
+          <h2 id="resilience-title" class="mt-2 text-2xl font-bold text-white">Resilience Templates</h2>
+          <p class="mt-3 text-sm text-zinc-400">Copy or download these self-contained starter skeletons. The <a href="https://github.com/0xSac/0xsac-resilience-pack" class="text-emerald-400 underline underline-offset-4 hover:text-white">0xsac-resilience-pack repository</a> is the intended upstream source; public availability could not be verified. These local starters are not upstream releases.</p>
+          <div class="mt-6 grid items-start gap-6 lg:grid-cols-3">
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">07 // Recovery</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">Enterprise System Recovery Plan (SRP) Skeleton</h3>
+              <p class="mt-4 text-sm text-zinc-300">NIST SP 800-34r1 planning reference. Define recovery priorities and validate restoration before returning systems to service.</p>
+              <pre class="mt-5 whitespace-pre-wrap" tabindex="0" aria-label="System recovery plan skeleton" data-download="0xsac-srp-skeleton.txt"><code>ENTERPRISE SYSTEM RECOVERY PLAN
+Reference: NIST SP 800-34r1
+Status: Local exercise starter; tailor before use
+
+1. System / owner / approval / version: [ ]
+2. Business impact + essential dependencies: [ ]
+3. Recovery time objective / recovery point objective: [ ]
+4. Activation criteria / authority / contacts: [ ]
+5. Trusted backups + integrity verification: [ ]
+6. Recovery sequence / dependencies / accountable owners: [ ]
+7. Alternate services + public safety continuity: [ ]
+8. Security validation / acceptance / rollback criteria: [ ]
+9. Reconstitution + stakeholder communications: [ ]
+10. Exercise results / corrective actions / review date: [ ]</code></pre>
+              <a href="https://csrc.nist.gov/pubs/sp/800/34/r1/final" class="mt-4 inline-block text-sm text-emerald-400 underline underline-offset-4 hover:text-white">NIST planning reference &rarr;</a>
+            </article>
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">08 // Response</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">Enterprise Incident Response Plan (IRP) Template</h3>
+              <p class="mt-4 text-sm text-zinc-300">NIST SP 800-61r2 lifecycle reference, as requested. Revision 2 is superseded by revision 3; use current guidance for operational adoption.</p>
+              <pre class="mt-5 whitespace-pre-wrap" tabindex="0" aria-label="Incident response plan template" data-download="0xsac-irp-template.txt"><code>ENTERPRISE INCIDENT RESPONSE PLAN
+Reference: NIST SP 800-61r2 (superseded by r3)
+Status: Local exercise starter; tailor before use
+
+1. Scope / authority / incident commander: [ ]
+2. Preparation: contacts, tooling, exercises, evidence handling [ ]
+3. Detection + analysis: severity, timeline, scope, confidence [ ]
+4. Containment: boundaries, service impact, executive approval [ ]
+5. Eradication: root cause, persistence removal, validation [ ]
+6. Recovery: trusted restore, monitoring, acceptance criteria [ ]
+7. Legal: applicable clocks, counsel, notification records [ ]
+8. Communications: audiences, approvers, update cadence [ ]
+9. Post-incident: lessons, action owners, due dates [ ]
+10. Plan approval / next review / exercise date: [ ]</code></pre>
+              <a href="https://csrc.nist.gov/pubs/sp/800/61/r3/final" class="mt-4 inline-block text-sm text-emerald-400 underline underline-offset-4 hover:text-white">Current NIST response guidance &rarr;</a>
+            </article>
+            <article class="resource-card rounded-xl border border-zinc-800 bg-[#121214] p-6 hover:border-zinc-700">
+              <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">09 // Lessons to action</span>
+              <h3 class="mt-3 text-xl font-semibold text-white">Hotwash &amp; After-Action Review (AAR) Matrix</h3>
+              <p class="mt-4 text-sm text-zinc-300">Bring both tracks into one review. Separate observations from assumptions and track each corrective action to closure.</p>
+              <pre class="mt-5 whitespace-pre-wrap" tabindex="0" aria-label="Hotwash and after-action review matrix" data-download="0xsac-aar-matrix.txt"><code>HOTWASH / AFTER-ACTION REVIEW
+Status: Local exercise starter
+
+Exercise / date / facilitator: [ ]
+Participants / tracks / scope: [ ]
+Objective / expected outcome: [ ]
+
+Observation | Evidence / timestamp | Impact | Root cause
+[ ]         | [ ]                  | [ ]    | [ ]
+
+Corrective action | Owner | Due date | Priority | Closure evidence
+[ ]               | [ ]   | [ ]      | [ ]      | [ ]
+
+What worked / preserve: [ ]
+Technical-to-executive handoff gaps: [ ]
+Notification / communications lessons: [ ]
+Service continuity / recovery lessons: [ ]
+Follow-up review / acceptance owner: [ ]</code></pre>
+            </article>
+          </div>
+        </section>
+      </div>
+      <noscript><p class="mt-8 text-sm text-zinc-400">All resources are displayed. Enable JavaScript for category filters, Copy buttons, and template downloads; otherwise select the text manually.</p></noscript>
+    </div>
+  </main>
+
+  <!-- ========== Site Footer ========== -->
+  <footer class="border-t border-zinc-800 bg-ink-800/60">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div class="md:col-span-2">
+        <a href="/" class="font-mono text-lg font-bold text-white">0xSAC</a>
+        <p class="mt-3 max-w-sm text-sm text-zinc-400">Sacramento Advanced Cyber Range &amp; Executive Simulation. Presented by MCPA Sacramento, a 501(c)(3) educational non-profit. Engineered by Mogsec.</p>
+      </div>
+      <nav aria-label="Footer — Tracks">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Tracks</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/livefire.html" class="text-zinc-300 hover:text-white">Live-Fire &amp; CTF</a></li>
+          <li><a href="/executive.html" class="text-zinc-300 hover:text-white">Executive Simulation</a></li>
+          <li><a href="/#register" class="text-zinc-300 hover:text-white">Register / Portal</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — Event">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Event</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/schedule.html" class="text-zinc-300 hover:text-white">Schedule</a></li>
+          <li><a href="/governance.html" class="text-zinc-300 hover:text-white">Governance &amp; Sponsorship</a></li>
+          <li><a href="/resources" class="text-zinc-300 hover:text-white">Resources</a></li>
+          <li><a href="https://github.com/0xSac" class="text-zinc-300 hover:text-white" rel="noopener">GitHub Organization</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="border-t border-zinc-800">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 font-mono text-xs text-zinc-500 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+        <p>&copy; 2026 0xSAC &bull; MCPA Sacramento Chapter &bull; Sacramento, CA</p>
+        <p>Range runs 100% in isolated vendor-hosted cloud. <a href="/governance.html#separation" class="text-zinc-400 underline underline-offset-4 hover:text-white">Details</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/resources.js" defer></script>
+</body>
+</html>

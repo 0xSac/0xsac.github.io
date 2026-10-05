@@ -25,7 +25,7 @@
     }
   });
 
-  var desktop = window.matchMedia('(min-width: 768px)');
+  var desktop = window.matchMedia('(min-width: 1024px)');
   var onBreakpoint = function (mq) {
     if (mq.matches) setOpen(false);
   };
