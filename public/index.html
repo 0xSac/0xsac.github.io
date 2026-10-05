@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>0xSAC // Sacramento Advanced Cyber Range &amp; Executive Simulation</title>
+  <meta name="description" content="0xSAC (Hex Sac) is Sacramento's practitioner-led proving ground bridging live-fire adversary containment with strategic crisis decision-making. Presented by MCPA Sacramento, engineered by Mogsec." />
+  <link rel="canonical" href="https://0xsac.com/" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:title" content="0xSAC // Sacramento Advanced Cyber Range &amp; Proving Ground" />
+  <meta property="og:description" content="Two concurrent tracks: Live-Fire &amp; CTF for defenders, and an Executive Decision Simulation for agency and enterprise leaders." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://0xsac.com/" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/tailwind-theme.js"></script>
+</head>
+<body class="bg-ink text-zinc-200 font-sans antialiased min-h-screen flex flex-col selection:bg-term-cyan/30 selection:text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded focus:bg-term-cyan focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-black">Skip to main content</a>
+
+  <!-- ========== Site Header ========== -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-ink/85 backdrop-blur supports-[backdrop-filter]:bg-ink/70">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Primary">
+      <a href="/" class="group flex items-center gap-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan" aria-label="0xSAC home">
+        <span class="rounded border border-term-green/40 bg-term-green/10 px-1.5 py-0.5 font-mono text-xs font-bold text-term-green">0x</span>
+        <span class="font-mono text-lg font-bold tracking-tight text-white">0xSAC</span>
+      </a>
+      <div class="hidden items-center gap-1 md:flex">
+        <span class="px-2 font-mono text-[11px] uppercase tracking-widest text-zinc-500" aria-hidden="true">Tracks:</span>
+        <a href="/livefire.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Live-Fire</a>
+        <a href="/executive.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Executive</a>
+        <span class="mx-2 h-5 w-px bg-zinc-800" aria-hidden="true"></span>
+        <a href="/schedule.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Schedule</a>
+        <a href="/governance.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Governance</a>
+        <a href="/#register" class="ml-3 rounded-md bg-term-green px-4 py-2 font-mono text-sm font-bold text-black shadow-glow-green hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Register / Portal</a>
+      </div>
+      <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-300 hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan md:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-zinc-800 bg-ink md:hidden">
+      <div class="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-6">
+        <p class="px-3 pb-1 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Tracks</p>
+        <a href="/livefire.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 1 — Live-Fire &amp; CTF</a>
+        <a href="/executive.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 2 — Executive Simulation</a>
+        <p class="px-3 pb-1 pt-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Event</p>
+        <a href="/schedule.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Schedule</a>
+        <a href="/governance.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Governance</a>
+        <a href="/#register" class="mt-3 block rounded-md bg-term-green px-3 py-2.5 text-center font-mono font-bold text-black">Register / Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+
+    <!-- ========== Hero ========== -->
+    <section class="relative overflow-hidden border-b border-zinc-800/80" aria-labelledby="hero-title">
+      <div class="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -top-40 left-1/2 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-term-cyan/10 blur-3xl" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:px-8">
+        <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+          <span class="inline-flex items-center gap-2 rounded-full border border-term-green/30 bg-term-green/10 px-3 py-1 text-term-green">
+            <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-term-green" aria-hidden="true"></span>
+            1-Day Pilot // Sacramento, CA
+          </span>
+          <span class="rounded-full border border-zinc-700 bg-zinc-900/60 px-3 py-1 text-zinc-400">Presented by MCPA Sacramento</span>
+        </div>
+
+        <p class="mt-8 font-mono text-sm text-term-cyan"><span class="text-zinc-600">0x0000:</span> ./0xsac --init</p>
+        <h1 id="hero-title" class="mt-3 max-w-5xl text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <span class="font-mono text-term-green">0xSAC</span> <span class="text-zinc-600">//</span>
+          Sacramento Advanced Cyber Range &amp; Proving Ground
+        </h1>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
+          Sacramento's practitioner-led proving ground bridging live-fire adversary containment with strategic crisis decision-making.
+        </p>
+
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+          <a href="/livefire.html" class="inline-flex items-center justify-center gap-2 rounded-md border border-term-green/50 bg-term-green/10 px-5 py-3 font-mono text-sm font-semibold text-term-green hover:bg-term-green hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-term-green focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
+            <span aria-hidden="true">&gt;_</span> I defend networks — Track 1
+          </a>
+          <a href="/executive.html" class="inline-flex items-center justify-center gap-2 rounded-md border border-term-cyan/50 bg-term-cyan/10 px-5 py-3 font-mono text-sm font-semibold text-term-cyan hover:bg-term-cyan hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
+            <span aria-hidden="true">&#9670;</span> I lead organizations — Track 2
+          </a>
+        </div>
+
+        <!-- Key stats -->
+        <h2 class="sr-only">Exercise at a glance</h2>
+        <dl class="mt-14 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          <div class="rounded-xl border border-zinc-800 bg-ink-800/80 p-5">
+            <dt class="font-mono text-[11px] uppercase tracking-widest text-zinc-500">0x05 // Blue</dt>
+            <dd class="mt-2"><span class="block font-mono text-4xl font-bold text-white">5</span><span class="mt-1 block text-sm text-zinc-400">Defending Pods</span></dd>
+          </div>
+          <div class="rounded-xl border border-zinc-800 bg-ink-800/80 p-5">
+            <dt class="font-mono text-[11px] uppercase tracking-widest text-zinc-500">0x01 // Red</dt>
+            <dd class="mt-2"><span class="block font-mono text-4xl font-bold text-white">1</span><span class="mt-1 block text-sm text-zinc-400">Dedicated Adversary Cell</span></dd>
+          </div>
+          <div class="rounded-xl border border-zinc-800 bg-ink-800/80 p-5">
+            <dt class="font-mono text-[11px] uppercase tracking-widest text-zinc-500">0x02 // Sync</dt>
+            <dd class="mt-2"><span class="block font-mono text-4xl font-bold text-white">2</span><span class="mt-1 block text-sm text-zinc-400">Concurrent Tracks</span></dd>
+          </div>
+          <div class="rounded-xl border border-zinc-800 bg-ink-800/80 p-5">
+            <dt class="font-mono text-[11px] uppercase tracking-widest text-zinc-500">0x08 // CPE</dt>
+            <dd class="mt-2"><span class="block font-mono text-4xl font-bold text-white">8</span><span class="mt-1 block text-sm text-zinc-400">Continuing Professional Education (CPE) Credits</span></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ========== Dual-Track Comparison ========== -->
+    <section id="tracks" class="border-b border-zinc-800/80 py-20" aria-labelledby="tracks-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0100</span> // Choose your track</p>
+        <h2 id="tracks-title" class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Two tracks. One synchronized incident.</h2>
+        <p class="mt-4 max-w-3xl text-zinc-400">Both tracks run concurrently against the same scenario. What defenders see on the wire becomes what leaders must decide on in the boardroom.</p>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-2">
+          <!-- Track 1 -->
+          <article class="flex flex-col rounded-2xl border border-term-green/30 bg-gradient-to-b from-term-green/[0.06] to-transparent p-6 sm:p-8" aria-labelledby="t1-title">
+            <div class="flex items-center justify-between gap-4">
+              <span class="rounded border border-term-green/40 bg-term-green/10 px-2 py-0.5 font-mono text-xs text-term-green">TRACK 1</span>
+              <span class="font-mono text-xs text-zinc-500">hands-on-keyboard</span>
+            </div>
+            <h3 id="t1-title" class="mt-5 font-mono text-2xl font-bold text-white">0xSAC <span class="text-zinc-600">//</span> <span class="text-term-green">LIVEFIRE &amp; CTF</span></h3>
+            <p class="mt-3 text-zinc-400">For SOC analysts, incident responders, network defenders, and Red/Blue operators.</p>
+            <ul class="mt-6 space-y-3 text-sm text-zinc-300" role="list">
+              <li class="flex gap-3"><span class="font-mono text-term-green" aria-hidden="true">[+]</span>Hands-on-keyboard adversary eviction from a live, contested environment</li>
+              <li class="flex gap-3"><span class="font-mono text-term-green" aria-hidden="true">[+]</span>MITRE ATT&amp;CK-mapped kill-chains executed by a dedicated adversary cell</li>
+              <li class="flex gap-3"><span class="font-mono text-term-green" aria-hidden="true">[+]</span>Real-time packet inspection and endpoint telemetry hunting</li>
+              <li class="flex gap-3"><span class="font-mono text-term-green" aria-hidden="true">[+]</span>Capture-the-Flag challenges scored alongside service uptime</li>
+            </ul>
+            <div class="mt-auto pt-8">
+              <a href="/livefire.html" class="inline-flex items-center gap-2 font-mono text-sm font-semibold text-term-green hover:text-white focus:outline-none focus-visible:underline">View the Live-Fire syllabus <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+
+          <!-- Track 2 -->
+          <article class="flex flex-col rounded-2xl border border-term-cyan/30 bg-gradient-to-b from-term-cyan/[0.06] to-transparent p-6 sm:p-8" aria-labelledby="t2-title">
+            <div class="flex items-center justify-between gap-4">
+              <span class="rounded border border-term-cyan/40 bg-term-cyan/10 px-2 py-0.5 font-mono text-xs text-term-cyan">TRACK 2</span>
+              <span class="font-mono text-xs text-zinc-500">decision-making</span>
+            </div>
+            <h3 id="t2-title" class="mt-5 font-mono text-2xl font-bold text-white">0xSAC <span class="text-zinc-600">//</span> <span class="text-term-cyan">EXEC</span></h3>
+            <p class="mt-3 text-zinc-400">An Executive Decision Simulation for Agency Directors, CISOs, and City Managers.</p>
+            <ul class="mt-6 space-y-3 text-sm text-zinc-300" role="list">
+              <li class="flex gap-3"><span class="font-mono text-term-cyan" aria-hidden="true">[&#9670;]</span>Statutory disclosure clocks and regulatory notification decisions</li>
+              <li class="flex gap-3"><span class="font-mono text-term-cyan" aria-hidden="true">[&#9670;]</span>Live media injects and public-communication pressure</li>
+              <li class="flex gap-3"><span class="font-mono text-term-cyan" aria-hidden="true">[&#9670;]</span>Continuity of operations for essential public and business services</li>
+              <li class="flex gap-3"><span class="font-mono text-term-cyan" aria-hidden="true">[&#9670;]</span>Plain-language governance — zero military jargon</li>
+            </ul>
+            <div class="mt-auto pt-8">
+              <a href="/executive.html" class="inline-flex items-center gap-2 font-mono text-sm font-semibold text-term-cyan hover:text-white focus:outline-none focus-visible:underline">View the Executive syllabus <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Operational Flow ========== -->
+    <section id="flow" class="border-b border-zinc-800/80 bg-ink-800/40 py-20" aria-labelledby="flow-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0200</span> // Operational flow</p>
+        <h2 id="flow-title" class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">The 1-Day Pilot format</h2>
+        <ol class="mt-12 grid gap-6 md:grid-cols-3" role="list">
+          <li class="relative rounded-xl border border-zinc-800 bg-ink p-6">
+            <p class="font-mono text-xs text-term-amber">PHASE I</p>
+            <h3 class="mt-2 text-xl font-semibold text-white">Audit &amp; Harden</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">Teams baseline telemetry, inventory their pod, and remediate vulnerabilities before the adversary cell goes live.</p>
+            <span class="absolute -right-4 top-1/2 hidden -translate-y-1/2 font-mono text-2xl text-zinc-700 md:block" aria-hidden="true">&rarr;</span>
+          </li>
+          <li class="relative rounded-xl border border-zinc-800 bg-ink p-6">
+            <p class="font-mono text-xs text-term-green">PHASE II</p>
+            <h3 class="mt-2 text-xl font-semibold text-white">Live-Fire Defense</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">Defenders contain an active intrusion while executives work the synchronized crisis simulation fed by range telemetry.</p>
+            <span class="absolute -right-4 top-1/2 hidden -translate-y-1/2 font-mono text-2xl text-zinc-700 md:block" aria-hidden="true">&rarr;</span>
+          </li>
+          <li class="rounded-xl border border-zinc-800 bg-ink p-6">
+            <p class="font-mono text-xs text-term-cyan">PHASE III</p>
+            <h3 class="mt-2 text-xl font-semibold text-white">Joint Hotwash / AAR</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">Red, Blue, and Executive participants reconcile what happened, what was decided, and what to fix. Scores and CPEs are issued.</p>
+          </li>
+        </ol>
+        <a href="/schedule.html" class="mt-8 inline-flex items-center gap-2 font-mono text-sm text-zinc-300 hover:text-white focus:outline-none focus-visible:underline">See the full 0800–1730 schedule <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
+    <!-- ========== Register / Portal ========== -->
+    <section id="register" class="scroll-mt-20 border-b border-zinc-800/80 py-20" aria-labelledby="register-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl border border-zinc-800 bg-ink-800/60 p-6 sm:p-10">
+          <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0300</span> // Attendee portal</p>
+          <h2 id="register-title" class="mt-2 text-3xl font-bold tracking-tight text-white">Register your interest</h2>
+          <p class="mt-4 max-w-3xl text-zinc-400">Seats are limited by pod capacity. Pick the track that matches your role, review the syllabus and prerequisites, then request a seat. Confirmed attendees receive range credentials and portal access ahead of event day.</p>
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <div class="rounded-xl border border-term-green/30 p-5">
+              <h3 class="font-mono font-semibold text-term-green">Track 1 — Live-Fire &amp; CTF</h3>
+              <p class="mt-2 text-sm text-zinc-400">You run tools, read packets, and write detections. Bring a laptop.</p>
+              <a href="mailto:partner@0xsac.com?subject=0xSAC%20Registration%20-%20Track%201%20Live-Fire" class="mt-4 inline-flex rounded-md bg-term-green px-4 py-2 font-mono text-sm font-bold text-black hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Request a Track 1 seat</a>
+            </div>
+            <div class="rounded-xl border border-term-cyan/30 p-5">
+              <h3 class="font-mono font-semibold text-term-cyan">Track 2 — Executive Simulation</h3>
+              <p class="mt-2 text-sm text-zinc-400">You own the decision, the disclosure, and the press conference.</p>
+              <a href="mailto:partner@0xsac.com?subject=0xSAC%20Registration%20-%20Track%202%20Executive" class="mt-4 inline-flex rounded-md bg-term-cyan px-4 py-2 font-mono text-sm font-bold text-black hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Request a Track 2 seat</a>
+            </div>
+          </div>
+          <p class="mt-6 font-mono text-xs text-zinc-500">Registration is staged — event date TBD. Requests are routed to <a href="mailto:partner@0xsac.com" class="text-zinc-300 underline underline-offset-4 hover:text-white">partner@0xsac.com</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Partner & Sponsor Masthead ========== -->
+    <section id="partners" class="py-20" aria-labelledby="partners-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="text-center font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0400</span> // Partners</p>
+        <h2 id="partners-title" class="mt-2 text-center text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          Presented by <span class="text-term-green">MCPA Sacramento</span> <span class="text-zinc-600">|</span> Engineered by <span class="text-term-cyan">Mogsec</span>
+        </h2>
+        <p class="mx-auto mt-3 max-w-2xl text-center text-sm text-zinc-400">A 501(c)(3) educational exercise presented by the Military Cyber Professionals Association Sacramento Chapter, with engineering and planning by Mogsec.</p>
+
+        <div class="mt-12 space-y-6">
+          <div>
+            <p class="text-center font-mono text-[11px] uppercase tracking-widest text-zinc-500">Infrastructure &amp; Cloud Range Partners</p>
+            <ul class="mt-4 grid gap-4 sm:grid-cols-2" role="list">
+              <li class="flex h-28 flex-col items-center justify-center rounded-xl border border-zinc-800 bg-ink-800/60">
+                <span class="text-2xl font-bold tracking-tight text-white">World Wide Technology</span>
+                <span class="mt-1 font-mono text-xs text-zinc-500">WWT // Cloud Range</span>
+              </li>
+              <li class="flex h-28 flex-col items-center justify-center rounded-xl border border-zinc-800 bg-ink-800/60">
+                <span class="text-2xl font-bold tracking-tight text-white">Cisco</span>
+                <span class="mt-1 font-mono text-xs text-zinc-500">Infrastructure // Telemetry</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p class="text-center font-mono text-[11px] uppercase tracking-widest text-zinc-500">Track &amp; Lunch Sponsors</p>
+            <ul class="mt-4 grid gap-4 sm:grid-cols-3" role="list">
+              <li class="flex h-20 items-center justify-center rounded-xl border border-dashed border-zinc-800 font-mono text-xs text-zinc-500">Track 1 Sponsor — Available</li>
+              <li class="flex h-20 items-center justify-center rounded-xl border border-dashed border-zinc-800 font-mono text-xs text-zinc-500">Track 2 Sponsor — Available</li>
+              <li class="flex h-20 items-center justify-center rounded-xl border border-dashed border-zinc-800 font-mono text-xs text-zinc-500">Lunch Underwriter — Available</li>
+            </ul>
+          </div>
+          <p class="text-center"><a href="/governance.html#sponsorship" class="font-mono text-sm text-zinc-300 underline underline-offset-4 hover:text-white">View the sponsorship prospectus</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Site Footer ========== -->
+  <footer class="border-t border-zinc-800 bg-ink-800/60">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div class="md:col-span-2">
+        <a href="/" class="font-mono text-lg font-bold text-white">0xSAC</a>
+        <p class="mt-3 max-w-sm text-sm text-zinc-400">Sacramento Advanced Cyber Range &amp; Executive Simulation. Presented by MCPA Sacramento, a 501(c)(3) educational non-profit. Engineered by Mogsec.</p>
+      </div>
+      <nav aria-label="Footer — Tracks">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Tracks</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/livefire.html" class="text-zinc-300 hover:text-white">Live-Fire &amp; CTF</a></li>
+          <li><a href="/executive.html" class="text-zinc-300 hover:text-white">Executive Simulation</a></li>
+          <li><a href="/#register" class="text-zinc-300 hover:text-white">Register / Portal</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — Event">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Event</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/schedule.html" class="text-zinc-300 hover:text-white">Schedule</a></li>
+          <li><a href="/governance.html" class="text-zinc-300 hover:text-white">Governance &amp; Sponsorship</a></li>
+          <li><a href="/resources" class="text-zinc-300 hover:text-white">Resources</a></li>
+          <li><a href="https://github.com/0xSac" class="text-zinc-300 hover:text-white" rel="noopener">GitHub Organization</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="border-t border-zinc-800">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 font-mono text-xs text-zinc-500 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+        <p>&copy; 2026 0xSAC &bull; MCPA Sacramento Chapter &bull; Sacramento, CA</p>
+        <p>Range runs 100% in isolated vendor-hosted cloud. <a href="/governance.html#separation" class="text-zinc-400 underline underline-offset-4 hover:text-white">Details</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>

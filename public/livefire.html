@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track 1: Live-Fire &amp; CTF | 0xSAC</title>
+  <meta name="description" content="Track 1 technical syllabus: five defending pods, the APT-916 Dark Delta adversary, rules of engagement, prerequisites, scoring, and CPE validation." />
+  <link rel="canonical" href="https://0xsac.com/livefire.html" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:title" content="Track 1: Live-Fire &amp; CTF | 0xSAC" />
+  <meta property="og:description" content="Track 1 technical syllabus: five defending pods, the APT-916 Dark Delta adversary, rules of engagement, prerequisites, scoring, and CPE validation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://0xsac.com/livefire.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/tailwind-theme.js"></script>
+</head>
+<body class="bg-ink text-zinc-200 font-sans antialiased min-h-screen flex flex-col selection:bg-term-cyan/30 selection:text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded focus:bg-term-cyan focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-black">Skip to main content</a>
+
+  <!-- ========== Site Header ========== -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-ink/85 backdrop-blur supports-[backdrop-filter]:bg-ink/70">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Primary">
+      <a href="/" class="group flex items-center gap-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan" aria-label="0xSAC home">
+        <span class="rounded border border-term-green/40 bg-term-green/10 px-1.5 py-0.5 font-mono text-xs font-bold text-term-green">0x</span>
+        <span class="font-mono text-lg font-bold tracking-tight text-white">0xSAC</span>
+      </a>
+      <div class="hidden items-center gap-1 md:flex">
+        <span class="px-2 font-mono text-[11px] uppercase tracking-widest text-zinc-500" aria-hidden="true">Tracks:</span>
+        <a href="/livefire.html" aria-current="page" class="rounded px-3 py-2 text-sm bg-zinc-800/70 text-white hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Live-Fire</a>
+        <a href="/executive.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Executive</a>
+        <span class="mx-2 h-5 w-px bg-zinc-800" aria-hidden="true"></span>
+        <a href="/schedule.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Schedule</a>
+        <a href="/governance.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Governance</a>
+        <a href="/#register" class="ml-3 rounded-md bg-term-green px-4 py-2 font-mono text-sm font-bold text-black shadow-glow-green hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Register / Portal</a>
+      </div>
+      <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-300 hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan md:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-zinc-800 bg-ink md:hidden">
+      <div class="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-6">
+        <p class="px-3 pb-1 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Tracks</p>
+        <a href="/livefire.html" aria-current="page" class="block rounded bg-zinc-800 px-3 py-2 text-white hover:bg-zinc-800">Track 1 — Live-Fire &amp; CTF</a>
+        <a href="/executive.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 2 — Executive Simulation</a>
+        <p class="px-3 pb-1 pt-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Event</p>
+        <a href="/schedule.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Schedule</a>
+        <a href="/governance.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Governance</a>
+        <a href="/#register" class="mt-3 block rounded-md bg-term-green px-3 py-2.5 text-center font-mono font-bold text-black">Register / Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+
+    <!-- ========== Page Header ========== -->
+    <section class="relative overflow-hidden border-b border-zinc-800/80" aria-labelledby="page-title">
+      <div class="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 sm:pt-20 lg:px-8">
+        <nav aria-label="Breadcrumb" class="font-mono text-xs text-zinc-500"><a href="/" class="hover:text-white">0xSAC</a> <span aria-hidden="true">/</span> Tracks <span aria-hidden="true">/</span> <span class="text-term-green" aria-current="page">livefire</span></nav>
+        <span class="mt-6 inline-flex rounded border border-term-green/40 bg-term-green/10 px-2 py-0.5 font-mono text-xs text-term-green">TRACK 1 // TECHNICAL</span>
+        <h1 id="page-title" class="mt-4 max-w-4xl font-mono text-4xl font-bold tracking-tight text-white sm:text-5xl">0xSAC <span class="text-zinc-600">//</span> <span class="text-term-green">LIVEFIRE &amp; CTF</span></h1>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400">A contested, instrumented cyber range where five defending pods hold the line against a dedicated adversary cell. You will baseline, harden, hunt, and evict — while keeping mission services online and solving CTF challenges along the way.</p>
+        <div class="mt-8 flex flex-wrap gap-2 font-mono text-xs">
+          <span class="rounded-full border border-zinc-700 px-3 py-1 text-zinc-300">SOC Analysts</span>
+          <span class="rounded-full border border-zinc-700 px-3 py-1 text-zinc-300">Incident Responders</span>
+          <span class="rounded-full border border-zinc-700 px-3 py-1 text-zinc-300">Network Defenders</span>
+          <span class="rounded-full border border-zinc-700 px-3 py-1 text-zinc-300">Red / Blue Operators</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Range Environment ========== -->
+    <section class="border-b border-zinc-800/80 py-20" aria-labelledby="range-title">
+      <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-5 lg:px-8">
+        <div class="lg:col-span-2">
+          <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0100</span> // Range environment</p>
+          <h2 id="range-title" class="mt-2 text-3xl font-bold tracking-tight text-white">Inside the range</h2>
+          <p class="mt-4 text-zinc-400">Each pod receives an identical, isolated enterprise slice hosted in vendor-provided commercial cloud. Pods share a scenario but never share infrastructure — your mistakes stay in your enclave.</p>
+          <p class="mt-4 text-sm text-zinc-500">The range has zero connectivity to production, government, or military networks. <a href="/governance.html#separation" class="text-zinc-300 underline underline-offset-4 hover:text-white">Read the separation statement</a>.</p>
+        </div>
+        <div class="lg:col-span-3">
+          <div class="overflow-hidden rounded-xl border border-zinc-800 bg-ink-800">
+            <div class="flex items-center gap-2 border-b border-zinc-800 px-4 py-2" aria-hidden="true">
+              <span class="h-2.5 w-2.5 rounded-full bg-zinc-700"></span><span class="h-2.5 w-2.5 rounded-full bg-zinc-700"></span><span class="h-2.5 w-2.5 rounded-full bg-zinc-700"></span>
+              <span class="ml-2 font-mono text-xs text-zinc-500">pod-n.topology</span>
+            </div>
+            <ul class="divide-y divide-zinc-800 font-mono text-sm" role="list">
+              <li class="flex justify-between gap-4 px-4 py-3"><span class="text-term-green">edge/</span><span class="text-right text-zinc-400">Firewall, VPN concentrator, DMZ web services</span></li>
+              <li class="flex justify-between gap-4 px-4 py-3"><span class="text-term-green">identity/</span><span class="text-right text-zinc-400">Directory services, SSO, privileged accounts</span></li>
+              <li class="flex justify-between gap-4 px-4 py-3"><span class="text-term-green">workloads/</span><span class="text-right text-zinc-400">Windows &amp; Linux servers, user endpoints</span></li>
+              <li class="flex justify-between gap-4 px-4 py-3"><span class="text-term-green">mission/</span><span class="text-right text-zinc-400">Scored services your sector depends on</span></li>
+              <li class="flex justify-between gap-4 px-4 py-3"><span class="text-term-green">telemetry/</span><span class="text-right text-zinc-400">SIEM, full packet capture, EDR feeds</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Pod Architecture ========== -->
+    <section id="pods" class="border-b border-zinc-800/80 bg-ink-800/40 py-20" aria-labelledby="pods-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0200</span> // Pod architecture</p>
+        <h2 id="pods-title" class="mt-2 text-3xl font-bold tracking-tight text-white">Five defending pods</h2>
+        <p class="mt-4 max-w-3xl text-zinc-400">Pods are organized by sector so teams defend an environment that looks like home — and so the adversary can tailor tradecraft to each mission set.</p>
+        <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          <li class="rounded-xl border border-zinc-800 bg-ink p-6 hover:border-term-green/40">
+            <p class="font-mono text-xs text-term-green">POD 0x01</p>
+            <h3 class="mt-2 text-lg font-semibold text-white">Joint Military / Reserve</h3>
+            <p class="mt-1 font-mono text-xs text-zinc-500">ARNG / ANG / USMCR</p>
+            <p class="mt-3 text-sm text-zinc-400">Guard and reserve cyber personnel defending a simulated unit network in an educational setting.</p>
+          </li>
+          <li class="rounded-xl border border-zinc-800 bg-ink p-6 hover:border-term-green/40">
+            <p class="font-mono text-xs text-term-green">POD 0x02</p>
+            <h3 class="mt-2 text-lg font-semibold text-white">State / SLED</h3>
+            <p class="mt-1 font-mono text-xs text-zinc-500">California State Agencies</p>
+            <p class="mt-3 text-sm text-zinc-400">State security operations staff protecting citizen-facing services and sensitive records.</p>
+          </li>
+          <li class="rounded-xl border border-zinc-800 bg-ink p-6 hover:border-term-green/40">
+            <p class="font-mono text-xs text-term-green">POD 0x03</p>
+            <h3 class="mt-2 text-lg font-semibold text-white">Municipal / Local Gov</h3>
+            <p class="mt-1 font-mono text-xs text-zinc-500">City &amp; County IT / Public Safety</p>
+            <p class="mt-3 text-sm text-zinc-400">Local IT and public-safety technologists keeping dispatch, permitting, and payment systems online.</p>
+          </li>
+          <li class="rounded-xl border border-zinc-800 bg-ink p-6 hover:border-term-green/40">
+            <p class="font-mono text-xs text-term-green">POD 0x04</p>
+            <h3 class="mt-2 text-lg font-semibold text-white">Critical Infrastructure / Utility</h3>
+            <p class="mt-1 font-mono text-xs text-zinc-500">SCADA &amp; Regional Water / Power</p>
+            <p class="mt-3 text-sm text-zinc-400">OT and utility defenders protecting a simulated control-system environment and its IT bridge.</p>
+          </li>
+          <li class="rounded-xl border border-zinc-800 bg-ink p-6 hover:border-term-green/40 sm:col-span-2 lg:col-span-1">
+            <p class="font-mono text-xs text-term-green">POD 0x05</p>
+            <h3 class="mt-2 text-lg font-semibold text-white">Commercial Tech &amp; Detection Specialists</h3>
+            <p class="mt-1 font-mono text-xs text-zinc-500">Private Sector / Detection Engineering</p>
+            <p class="mt-3 text-sm text-zinc-400">Enterprise defenders and detection engineers hunting across a commercial SaaS-style environment.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== Threat Profile ========== -->
+    <section id="threat" class="border-b border-zinc-800/80 py-20" aria-labelledby="threat-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0300</span> // Threat profile teaser</p>
+        <div class="mt-6 overflow-hidden rounded-2xl border border-red-500/30 bg-gradient-to-br from-red-500/[0.07] to-transparent">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-red-500/20 px-6 py-4">
+            <h2 id="threat-title" class="font-mono text-2xl font-bold text-white">APT-916 <span class="text-red-400">"Dark Delta"</span></h2>
+            <span class="rounded border border-red-500/40 bg-red-500/10 px-2 py-0.5 font-mono text-xs text-red-300">TLP:CLEAR // FICTIONAL ADVERSARY</span>
+          </div>
+          <div class="grid gap-8 p-6 md:grid-cols-2">
+            <p class="text-zinc-300">A financially and politically motivated intrusion set named for the Sacramento–San Joaquin River Delta and the 916 area code. Dark Delta favors living-off-the-land tradecraft, patient credential harvesting, and timed disruption of public-facing services to maximize leverage over leadership.</p>
+            <dl class="grid grid-cols-1 gap-3 font-mono text-sm">
+              <div class="flex justify-between gap-4 border-b border-zinc-800 pb-2"><dt class="text-zinc-500">Initial Access</dt><dd class="text-right text-zinc-300">Phishing, exposed VPN (T1566, T1133)</dd></div>
+              <div class="flex justify-between gap-4 border-b border-zinc-800 pb-2"><dt class="text-zinc-500">Persistence</dt><dd class="text-right text-zinc-300">Valid accounts, scheduled tasks (T1078, T1053)</dd></div>
+              <div class="flex justify-between gap-4 border-b border-zinc-800 pb-2"><dt class="text-zinc-500">Lateral Movement</dt><dd class="text-right text-zinc-300">Remote services (T1021)</dd></div>
+              <div class="flex justify-between gap-4"><dt class="text-zinc-500">Objective</dt><dd class="text-right text-zinc-300">Exfiltration &amp; impact (T1041, T1486)</dd></div>
+            </dl>
+          </div>
+          <p class="border-t border-red-500/20 px-6 py-3 font-mono text-xs text-zinc-500">Full intelligence package is released to registered pods at the Opening Briefing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== RoE, Prereqs, Scoring, CPE ========== -->
+    <section id="rules" class="py-20" aria-labelledby="rules-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0400</span> // Participant brief</p>
+        <h2 id="rules-title" class="mt-2 text-3xl font-bold tracking-tight text-white">Rules, readiness &amp; scoring</h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+          <article class="rounded-xl border border-zinc-800 bg-ink-800/60 p-6">
+            <h3 class="font-mono text-sm font-semibold uppercase tracking-widest text-term-green">Rules of Engagement</h3>
+            <ul class="mt-4 space-y-2 text-sm text-zinc-300" role="list">
+              <li class="flex gap-3"><span class="font-mono text-zinc-600" aria-hidden="true">01</span>Operate only inside your assigned pod address space.</li>
+              <li class="flex gap-3"><span class="font-mono text-zinc-600" aria-hidden="true">02</span>No attacks against range infrastructure, scoring engine, or other pods.</li>
+              <li class="flex gap-3"><span class="font-mono text-zinc-600" aria-hidden="true">03</span>Do not shut down or firewall-off scored services to "win" — availability is scored.</li>
+              <li class="flex gap-3"><span class="font-mono text-zinc-600" aria-hidden="true">04</span>White Cell rulings are final; request adjudication through your pod lead.</li>
+              <li class="flex gap-3"><span class="font-mono text-zinc-600" aria-hidden="true">05</span>No real-world data, malware, or credentials may enter the range.</li>
+            </ul>
+          </article>
+          <article class="rounded-xl border border-zinc-800 bg-ink-800/60 p-6">
+            <h3 class="font-mono text-sm font-semibold uppercase tracking-widest text-term-green">Prerequisites</h3>
+            <ul class="mt-4 space-y-2 text-sm text-zinc-300" role="list">
+              <li class="flex gap-3"><span class="font-mono text-term-green" aria-hidden="true">[x]</span>Bring your own laptop (8 GB+ RAM, admin rights, charger).</li>
+              <li class="flex gap-3"><span class="font-mono text-term-green" aria-hidden="true">[x]</span>Working SSH client and the ability to install a VPN client.</li>
+              <li class="flex gap-3"><span class="font-mono text-term-green" aria-hidden="true">[x]</span>Outbound VPN not blocked by employer endpoint policy — verify beforehand.</li>
+              <li class="flex gap-3"><span class="font-mono text-term-green" aria-hidden="true">[x]</span>Comfort with the Linux/Windows CLI, log analysis, and packet basics.</li>
+            </ul>
+          </article>
+          <article class="rounded-xl border border-zinc-800 bg-ink-800/60 p-6">
+            <h3 class="font-mono text-sm font-semibold uppercase tracking-widest text-term-green">Scoring Metrics</h3>
+            <dl class="mt-4 space-y-3 text-sm">
+              <div><dt class="font-semibold text-white">SLA Uptime</dt><dd class="text-zinc-400">Continuous health checks on each pod's mission services.</dd></div>
+              <div><dt class="font-semibold text-white">Containment Latency</dt><dd class="text-zinc-400">Time from adversary action to verified detection and eviction.</dd></div>
+              <div><dt class="font-semibold text-white">CTF Flags &amp; Reporting</dt><dd class="text-zinc-400">Challenge flags plus quality of incident reports to the White Cell.</dd></div>
+            </dl>
+          </article>
+          <article class="rounded-xl border border-zinc-800 bg-ink-800/60 p-6">
+            <h3 class="font-mono text-sm font-semibold uppercase tracking-widest text-term-green">CPE Credit Validation</h3>
+            <p class="mt-4 text-sm text-zinc-300">Participants who complete all three phases are eligible for up to <strong class="text-white">8 CPE credits</strong>. Attendance is verified by range-credential activity and sign-in at the Opening Briefing and Hotwash. Certificates of participation are issued at the close of Phase III for self-reporting to your certifying body.</p>
+          </article>
+        </div>
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+          <a href="/#register" class="inline-flex items-center justify-center rounded-md bg-term-green px-5 py-3 font-mono text-sm font-bold text-black hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Register for Track 1</a>
+          <a href="/executive.html" class="inline-flex items-center justify-center rounded-md border border-zinc-700 px-5 py-3 font-mono text-sm text-zinc-300 hover:border-term-cyan hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Leading, not typing? See Track 2 &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Site Footer ========== -->
+  <footer class="border-t border-zinc-800 bg-ink-800/60">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div class="md:col-span-2">
+        <a href="/" class="font-mono text-lg font-bold text-white">0xSAC</a>
+        <p class="mt-3 max-w-sm text-sm text-zinc-400">Sacramento Advanced Cyber Range &amp; Executive Simulation. Presented by MCPA Sacramento, a 501(c)(3) educational non-profit. Engineered by Mogsec.</p>
+      </div>
+      <nav aria-label="Footer — Tracks">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Tracks</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/livefire.html" class="text-zinc-300 hover:text-white">Live-Fire &amp; CTF</a></li>
+          <li><a href="/executive.html" class="text-zinc-300 hover:text-white">Executive Simulation</a></li>
+          <li><a href="/#register" class="text-zinc-300 hover:text-white">Register / Portal</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — Event">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Event</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/schedule.html" class="text-zinc-300 hover:text-white">Schedule</a></li>
+          <li><a href="/governance.html" class="text-zinc-300 hover:text-white">Governance &amp; Sponsorship</a></li>
+          <li><a href="/resources" class="text-zinc-300 hover:text-white">Resources</a></li>
+          <li><a href="https://github.com/0xSac" class="text-zinc-300 hover:text-white" rel="noopener">GitHub Organization</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="border-t border-zinc-800">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 font-mono text-xs text-zinc-500 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+        <p>&copy; 2026 0xSAC &bull; MCPA Sacramento Chapter &bull; Sacramento, CA</p>
+        <p>Range runs 100% in isolated vendor-hosted cloud. <a href="/governance.html#separation" class="text-zinc-400 underline underline-offset-4 hover:text-white">Details</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>

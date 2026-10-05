@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governance &amp; Sponsorship | 0xSAC</title>
+  <meta name="description" content="0xSAC non-profit charter, complete technical separation statement, ethics guidance for public employees and service members, and sponsorship prospectus." />
+  <link rel="canonical" href="https://0xsac.com/governance.html" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:title" content="Governance &amp; Sponsorship | 0xSAC" />
+  <meta property="og:description" content="0xSAC non-profit charter, complete technical separation statement, ethics guidance for public employees and service members, and sponsorship prospectus." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://0xsac.com/governance.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/tailwind-theme.js"></script>
+</head>
+<body class="bg-ink text-zinc-200 font-sans antialiased min-h-screen flex flex-col selection:bg-term-cyan/30 selection:text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded focus:bg-term-cyan focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-black">Skip to main content</a>
+
+  <!-- ========== Site Header ========== -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-ink/85 backdrop-blur supports-[backdrop-filter]:bg-ink/70">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Primary">
+      <a href="/" class="group flex items-center gap-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan" aria-label="0xSAC home">
+        <span class="rounded border border-term-green/40 bg-term-green/10 px-1.5 py-0.5 font-mono text-xs font-bold text-term-green">0x</span>
+        <span class="font-mono text-lg font-bold tracking-tight text-white">0xSAC</span>
+      </a>
+      <div class="hidden items-center gap-1 md:flex">
+        <span class="px-2 font-mono text-[11px] uppercase tracking-widest text-zinc-500" aria-hidden="true">Tracks:</span>
+        <a href="/livefire.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Live-Fire</a>
+        <a href="/executive.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Executive</a>
+        <span class="mx-2 h-5 w-px bg-zinc-800" aria-hidden="true"></span>
+        <a href="/schedule.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Schedule</a>
+        <a href="/governance.html" aria-current="page" class="rounded px-3 py-2 text-sm bg-zinc-800/70 text-white hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Governance</a>
+        <a href="/#register" class="ml-3 rounded-md bg-term-green px-4 py-2 font-mono text-sm font-bold text-black shadow-glow-green hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Register / Portal</a>
+      </div>
+      <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-300 hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan md:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-zinc-800 bg-ink md:hidden">
+      <div class="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-6">
+        <p class="px-3 pb-1 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Tracks</p>
+        <a href="/livefire.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 1 — Live-Fire &amp; CTF</a>
+        <a href="/executive.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 2 — Executive Simulation</a>
+        <p class="px-3 pb-1 pt-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Event</p>
+        <a href="/schedule.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Schedule</a>
+        <a href="/governance.html" aria-current="page" class="block rounded bg-zinc-800 px-3 py-2 text-white hover:bg-zinc-800">Governance</a>
+        <a href="/#register" class="mt-3 block rounded-md bg-term-green px-3 py-2.5 text-center font-mono font-bold text-black">Register / Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+
+    <!-- ========== Page Header ========== -->
+    <section class="relative overflow-hidden border-b border-zinc-800/80" aria-labelledby="page-title">
+      <div class="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 sm:pt-20 lg:px-8">
+        <nav aria-label="Breadcrumb" class="font-mono text-xs text-zinc-500"><a href="/" class="hover:text-white">0xSAC</a> <span aria-hidden="true">/</span> <span class="text-zinc-300" aria-current="page">governance</span></nav>
+        <span class="mt-6 inline-flex rounded border border-zinc-600 bg-zinc-800/60 px-2 py-0.5 font-mono text-xs text-zinc-300">ETHICS // LEGAL // SPONSORSHIP</span>
+        <h1 id="page-title" class="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">Governance</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400">How 0xSAC is chartered, how the range is isolated, how public employees and service members can participate appropriately, and how organizations can support the mission.</p>
+        <ul class="mt-8 flex flex-wrap gap-2 font-mono text-xs" role="list" aria-label="On this page">
+          <li><a href="#charter" class="inline-block rounded-full border border-zinc-700 px-3 py-1 text-zinc-300 hover:border-zinc-500 hover:text-white">Charter</a></li>
+          <li><a href="#separation" class="inline-block rounded-full border border-zinc-700 px-3 py-1 text-zinc-300 hover:border-zinc-500 hover:text-white">Technical Separation</a></li>
+          <li><a href="#ethics" class="inline-block rounded-full border border-zinc-700 px-3 py-1 text-zinc-300 hover:border-zinc-500 hover:text-white">Ethics Compliance</a></li>
+          <li><a href="#sponsorship" class="inline-block rounded-full border border-zinc-700 px-3 py-1 text-zinc-300 hover:border-zinc-500 hover:text-white">Sponsorship Prospectus</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== Charter ========== -->
+    <section id="charter" class="scroll-mt-20 border-b border-zinc-800/80 py-20" aria-labelledby="charter-title">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0100</span> // Charter</p>
+          <h2 id="charter-title" class="mt-2 text-3xl font-bold tracking-tight text-white">Non-profit charter</h2>
+        </div>
+        <div class="space-y-4 text-zinc-300 lg:col-span-2">
+          <p>0xSAC is presented by the <strong class="text-white">Military Cyber Professionals Association (MCPA) Sacramento Chapter</strong> and operates under MCPA's 501(c)(3) educational non-profit charter. The exercise exists to develop the regional cyber workforce and strengthen civic resilience — not to sell products or services.</p>
+          <p>Engineering and scenario planning are provided by <strong class="text-white">Mogsec</strong>. Cloud range infrastructure is provided by <strong class="text-white">World Wide Technology (WWT)</strong> and <strong class="text-white">Cisco</strong>. Partners and sponsors receive recognition only; they do not receive participant data, influence scoring, or conduct sales activity on the range floor.</p>
+          <p class="text-sm text-zinc-500">Exercise content is educational. Scenarios, organizations, and threat actors are fictional; any resemblance to real entities is coincidental.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Technical Separation ========== -->
+    <section id="separation" class="scroll-mt-20 border-b border-zinc-800/80 bg-ink-800/40 py-20" aria-labelledby="separation-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0200</span> // Disclosure</p>
+        <h2 id="separation-title" class="mt-2 text-3xl font-bold tracking-tight text-white">Complete technical separation</h2>
+        <div class="mt-8 rounded-2xl border border-term-green/30 bg-ink p-6 sm:p-8">
+          <p class="text-lg text-zinc-200">The 0xSAC range runs <strong class="text-term-green">100% inside vendor-hosted commercial cloud infrastructure</strong> provided by WWT and Cisco. It is completely air-gapped from public-sector and defense systems.</p>
+          <ul class="mt-6 grid gap-3 font-mono text-sm sm:grid-cols-3" role="list">
+            <li class="rounded-lg border border-zinc-800 bg-ink-800 p-4"><span class="text-red-400" aria-hidden="true">[&times;]</span> <span class="text-zinc-300">Zero connection to CalNet</span></li>
+            <li class="rounded-lg border border-zinc-800 bg-ink-800 p-4"><span class="text-red-400" aria-hidden="true">[&times;]</span> <span class="text-zinc-300">Zero connection to state production networks</span></li>
+            <li class="rounded-lg border border-zinc-800 bg-ink-800 p-4"><span class="text-red-400" aria-hidden="true">[&times;]</span> <span class="text-zinc-300">Zero connection to military DODIN systems</span></li>
+          </ul>
+          <p class="mt-6 text-sm text-zinc-400">Participants connect from personally provided laptops over an exercise-only VPN. No government-furnished equipment, accounts, credentials, or data are used or required, and no real-world sensitive data is loaded into the environment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Ethics ========== -->
+    <section id="ethics" class="scroll-mt-20 border-b border-zinc-800/80 py-20" aria-labelledby="ethics-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0300</span> // Ethics compliance</p>
+        <h2 id="ethics-title" class="mt-2 text-3xl font-bold tracking-tight text-white">Participating appropriately</h2>
+        <div class="mt-10 grid gap-6 md:grid-cols-2">
+          <article class="rounded-xl border border-zinc-800 bg-ink-800/60 p-6">
+            <h3 class="font-mono text-sm font-semibold uppercase tracking-widest text-term-cyan">State &amp; Local Employees</h3>
+            <ul class="mt-4 space-y-3 text-sm text-zinc-300" role="list">
+              <li>Participation is <strong class="text-white">voluntary professional development</strong>, offered for continuing professional education (CPE) credit.</li>
+              <li>Attendance does not represent endorsement of any vendor or sponsor, and no procurement activity takes place at the event.</li>
+              <li>Meals and event materials are provided equally to all attendees. Confirm acceptance and time-reporting rules with your agency ethics or HR office in advance.</li>
+            </ul>
+          </article>
+          <article class="rounded-xl border border-zinc-800 bg-ink-800/60 p-6">
+            <h3 class="font-mono text-sm font-semibold uppercase tracking-widest text-term-green">Military Service Members</h3>
+            <ul class="mt-4 space-y-3 text-sm text-zinc-300" role="list">
+              <li>Participation is structured as <strong class="text-white">educational participation</strong> in a non-profit professional association event, consistent with the Joint Ethics Regulation (JER).</li>
+              <li>Participation is in a personal capacity unless officially authorized; no official endorsement of MCPA, sponsors, or vendors is implied.</li>
+              <li>Consult your unit's ethics counselor or Staff Judge Advocate regarding attendance in uniform, duty status, and acceptance of meals.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="mt-6 text-xs text-zinc-500">This guidance is informational and is not legal advice. Each participant is responsible for compliance with the rules of their employer or service.</p>
+      </div>
+    </section>
+
+    <!-- ========== Sponsorship Prospectus ========== -->
+    <section id="sponsorship" class="scroll-mt-20 py-20" aria-labelledby="sponsorship-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <p class="font-mono text-xs uppercase tracking-widest text-zinc-500"><span class="text-zinc-600">0x0400</span> // Prospectus</p>
+        <h2 id="sponsorship-title" class="mt-2 text-3xl font-bold tracking-tight text-white">Sponsorship prospectus</h2>
+        <p class="mt-4 max-w-3xl text-zinc-400">Sponsorship underwrites range compute, facilities, and participant meals so that public-sector defenders and leaders can attend at no cost. Recognition is educational and non-commercial in tone.</p>
+        <div class="mt-10 grid gap-6 lg:grid-cols-3">
+          <article class="flex flex-col rounded-2xl border border-term-green/40 bg-gradient-to-b from-term-green/[0.07] to-transparent p-6 sm:p-8">
+            <p class="font-mono text-xs text-term-green">TIER 0x01</p>
+            <h3 class="mt-2 text-xl font-semibold text-white">Founding Range Sponsor</h3>
+            <p class="mt-2 text-sm text-zinc-400">Limited availability. Anchors the range infrastructure and the event.</p>
+            <ul class="mt-5 space-y-2 text-sm text-zinc-300" role="list">
+              <li>&#10003; Top-tier logo placement on site, signage, and briefings</li>
+              <li>&#10003; Recognition during Opening Briefing and Hotwash</li>
+              <li>&#10003; Seats reserved for staff observers on the DV walkthrough</li>
+              <li>&#10003; Acknowledgement in the published after-action summary</li>
+            </ul>
+          </article>
+          <article class="flex flex-col rounded-2xl border border-term-cyan/40 bg-gradient-to-b from-term-cyan/[0.07] to-transparent p-6 sm:p-8">
+            <p class="font-mono text-xs text-term-cyan">TIER 0x02</p>
+            <h3 class="mt-2 text-xl font-semibold text-white">Track Sponsor</h3>
+            <p class="mt-2 text-sm text-zinc-400">One per track: Live-Fire &amp; CTF, or Executive Simulation.</p>
+            <ul class="mt-5 space-y-2 text-sm text-zinc-300" role="list">
+              <li>&#10003; Named recognition on the sponsored track page</li>
+              <li>&#10003; Logo on track materials and scoreboard / briefing deck</li>
+              <li>&#10003; Recognition at the Hotwash</li>
+            </ul>
+          </article>
+          <article class="flex flex-col rounded-2xl border border-term-amber/40 bg-gradient-to-b from-term-amber/[0.07] to-transparent p-6 sm:p-8">
+            <p class="font-mono text-xs text-term-amber">TIER 0x03</p>
+            <h3 class="mt-2 text-xl font-semibold text-white">Lunch Underwriter</h3>
+            <p class="mt-2 text-sm text-zinc-400">Feeds every participant during the working lunch.</p>
+            <ul class="mt-5 space-y-2 text-sm text-zinc-300" role="list">
+              <li>&#10003; Recognition signage at the catered working lunch</li>
+              <li>&#10003; Logo listing on the website partner masthead</li>
+            </ul>
+          </article>
+        </div>
+        <div class="mt-10 rounded-xl border border-zinc-800 bg-ink-800/60 p-6">
+          <p class="text-sm text-zinc-300">Sponsorship levels, pricing, and in-kind contribution options are available on request. Contributions to MCPA may be tax-deductible to the extent permitted by law; consult your tax advisor.</p>
+          <a href="mailto:partner@0xsac.com?subject=0xSAC%20Sponsorship%20Prospectus" class="mt-4 inline-flex rounded-md bg-term-green px-4 py-2 font-mono text-sm font-bold text-black hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Request the prospectus</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Site Footer ========== -->
+  <footer class="border-t border-zinc-800 bg-ink-800/60">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div class="md:col-span-2">
+        <a href="/" class="font-mono text-lg font-bold text-white">0xSAC</a>
+        <p class="mt-3 max-w-sm text-sm text-zinc-400">Sacramento Advanced Cyber Range &amp; Executive Simulation. Presented by MCPA Sacramento, a 501(c)(3) educational non-profit. Engineered by Mogsec.</p>
+      </div>
+      <nav aria-label="Footer — Tracks">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Tracks</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/livefire.html" class="text-zinc-300 hover:text-white">Live-Fire &amp; CTF</a></li>
+          <li><a href="/executive.html" class="text-zinc-300 hover:text-white">Executive Simulation</a></li>
+          <li><a href="/#register" class="text-zinc-300 hover:text-white">Register / Portal</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — Event">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Event</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/schedule.html" class="text-zinc-300 hover:text-white">Schedule</a></li>
+          <li><a href="/governance.html" class="text-zinc-300 hover:text-white">Governance &amp; Sponsorship</a></li>
+          <li><a href="/resources" class="text-zinc-300 hover:text-white">Resources</a></li>
+          <li><a href="https://github.com/0xSac" class="text-zinc-300 hover:text-white" rel="noopener">GitHub Organization</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="border-t border-zinc-800">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 font-mono text-xs text-zinc-500 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+        <p>&copy; 2026 0xSAC &bull; MCPA Sacramento Chapter &bull; Sacramento, CA</p>
+        <p>Range runs 100% in isolated vendor-hosted cloud. <a href="/governance.html#separation" class="text-zinc-400 underline underline-offset-4 hover:text-white">Details</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>
