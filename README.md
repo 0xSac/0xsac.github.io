@@ -6,10 +6,12 @@ Static web delivery engine for 0xSac cyber exercise blueprints, threat scenarios
 
 ## Architecture
 
-- Astro (Static Site Generation)
-- Tailwind CSS
+- Static HTML5 portal pages styled with Tailwind CSS via CDN (`public/*.html`)
+- Astro (Static Site Generation) for supporting content pages
 - GitHub Actions
 - GitHub Pages (`0xsac.com`)
+
+The public portal pages live in `public/` and are copied verbatim into `dist/` by `astro build`. They share a Tailwind CDN theme (`public/assets/tailwind-theme.js`) and a small mobile-navigation script (`public/assets/site.js`). When changing the navbar or footer, update it in every portal page so they stay consistent.
 
 ## Local Development Quickstart
 
@@ -25,9 +27,13 @@ npm run preview
 
 ## Site Routing Layout
 
-- `/` — Home (Exercise blueprints, current scenarios in design, partner inquiries)
-- `/about` — About (Vision, Mission, and Operational Boundaries)
-- `/resources` — Technical notes, detection guides, and range architecture patterns
+- `/` — Landing gateway (`public/index.html`): hero, dual-track comparison, operational flow, registration, partners
+- `/livefire.html` — Track 1: Live-Fire & CTF technical syllabus
+- `/executive.html` — Track 2: Executive Decision Simulation
+- `/schedule.html` — 1-Day Pilot operational tempo (0800–1730)
+- `/governance.html` — Non-profit charter, technical separation, ethics, sponsorship prospectus
+- `/about` — About (Vision, Mission, and Operational Boundaries) — Astro
+- `/resources` — Technical notes, detection guides, and range architecture patterns — Astro
 
 ## Inquiries
 

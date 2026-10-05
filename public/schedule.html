@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule: 1-Day Pilot | 0xSAC</title>
+  <meta name="description" content="The 0800–1730 operational tempo for the 0xSAC 1-day pilot: Audit &amp; Harden, Live-Fire Defense, and Joint Hotwash." />
+  <link rel="canonical" href="https://0xsac.com/schedule.html" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:title" content="Schedule: 1-Day Pilot | 0xSAC" />
+  <meta property="og:description" content="The 0800–1730 operational tempo for the 0xSAC 1-day pilot: Audit &amp; Harden, Live-Fire Defense, and Joint Hotwash." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://0xsac.com/schedule.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/assets/tailwind-theme.js"></script>
+</head>
+<body class="bg-ink text-zinc-200 font-sans antialiased min-h-screen flex flex-col selection:bg-term-cyan/30 selection:text-white">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded focus:bg-term-cyan focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-black">Skip to main content</a>
+
+  <!-- ========== Site Header ========== -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-ink/85 backdrop-blur supports-[backdrop-filter]:bg-ink/70">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8" aria-label="Primary">
+      <a href="/" class="group flex items-center gap-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan" aria-label="0xSAC home">
+        <span class="rounded border border-term-green/40 bg-term-green/10 px-1.5 py-0.5 font-mono text-xs font-bold text-term-green">0x</span>
+        <span class="font-mono text-lg font-bold tracking-tight text-white">0xSAC</span>
+      </a>
+      <div class="hidden items-center gap-1 md:flex">
+        <span class="px-2 font-mono text-[11px] uppercase tracking-widest text-zinc-500" aria-hidden="true">Tracks:</span>
+        <a href="/livefire.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Live-Fire</a>
+        <a href="/executive.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Executive</a>
+        <span class="mx-2 h-5 w-px bg-zinc-800" aria-hidden="true"></span>
+        <a href="/schedule.html" aria-current="page" class="rounded px-3 py-2 text-sm bg-zinc-800/70 text-white hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Schedule</a>
+        <a href="/governance.html" class="rounded px-3 py-2 text-sm text-zinc-300 hover:bg-zinc-800/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan">Governance</a>
+        <a href="/#register" class="ml-3 rounded-md bg-term-green px-4 py-2 font-mono text-sm font-bold text-black shadow-glow-green hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Register / Portal</a>
+      </div>
+      <button id="nav-toggle" type="button" class="inline-flex items-center justify-center rounded-md border border-zinc-700 p-2 text-zinc-300 hover:bg-zinc-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-term-cyan md:hidden" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open main menu">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-zinc-800 bg-ink md:hidden">
+      <div class="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-6">
+        <p class="px-3 pb-1 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Tracks</p>
+        <a href="/livefire.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 1 — Live-Fire &amp; CTF</a>
+        <a href="/executive.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Track 2 — Executive Simulation</a>
+        <p class="px-3 pb-1 pt-3 font-mono text-[11px] uppercase tracking-widest text-zinc-500">Event</p>
+        <a href="/schedule.html" aria-current="page" class="block rounded bg-zinc-800 px-3 py-2 text-white hover:bg-zinc-800">Schedule</a>
+        <a href="/governance.html" class="block rounded px-3 py-2 text-zinc-200 hover:bg-zinc-800">Governance</a>
+        <a href="/#register" class="mt-3 block rounded-md bg-term-green px-3 py-2.5 text-center font-mono font-bold text-black">Register / Portal</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+
+    <!-- ========== Page Header ========== -->
+    <section class="relative overflow-hidden border-b border-zinc-800/80" aria-labelledby="page-title">
+      <div class="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-4 pb-16 pt-14 sm:px-6 sm:pt-20 lg:px-8">
+        <nav aria-label="Breadcrumb" class="font-mono text-xs text-zinc-500"><a href="/" class="hover:text-white">0xSAC</a> <span aria-hidden="true">/</span> <span class="text-term-amber" aria-current="page">schedule</span></nav>
+        <span class="mt-6 inline-flex rounded border border-term-amber/40 bg-term-amber/10 px-2 py-0.5 font-mono text-xs text-term-amber">1-DAY PILOT // DATE TBD</span>
+        <h1 id="page-title" class="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">Operational tempo</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400">One day, three phases, two synchronized tracks. All times are Pacific. Track 1 and Track 2 share the opening, lunch, and the joint hotwash.</p>
+        <ul class="mt-8 flex flex-wrap gap-4 font-mono text-xs text-zinc-400" role="list" aria-label="Legend">
+          <li class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-term-green" aria-hidden="true"></span>Track 1 — Live-Fire</li>
+          <li class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-term-cyan" aria-hidden="true"></span>Track 2 — Executive</li>
+          <li class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-full bg-term-amber" aria-hidden="true"></span>All participants</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== Timeline ========== -->
+    <section class="py-20" aria-labelledby="timeline-title">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <h2 id="timeline-title" class="sr-only">Event timeline</h2>
+        <ol class="relative border-l border-zinc-800 pl-8 sm:pl-10" role="list">
+
+          <li class="relative pb-10">
+            <span class="absolute -left-[2.3rem] top-1.5 h-3 w-3 rounded-full bg-term-amber ring-4 ring-ink sm:-left-[2.8rem]" aria-hidden="true"></span>
+            <p class="font-mono text-sm font-semibold text-term-amber"><time datetime="08:00">0800</time>–<time datetime="08:30">0830</time></p>
+            <h3 class="mt-1 text-lg font-semibold text-white">Connectivity Verification &amp; Range Credential Issuance</h3>
+            <p class="mt-2 text-sm text-zinc-400">Check in, validate VPN and SSH access, and receive pod credentials. Executive participants are seated and receive briefing packets.</p>
+          </li>
+
+          <li class="relative pb-10">
+            <span class="absolute -left-[2.3rem] top-1.5 h-3 w-3 rounded-full bg-term-amber ring-4 ring-ink sm:-left-[2.8rem]" aria-hidden="true"></span>
+            <p class="font-mono text-sm font-semibold text-term-amber"><time datetime="08:30">0830</time>–<time datetime="09:15">0915</time></p>
+            <h3 class="mt-1 text-lg font-semibold text-white">Opening Briefing</h3>
+            <p class="mt-2 text-sm text-zinc-400">White Cell rules of engagement, scoring overview, and ground truth introduction for the scenario and the fictional organizations each pod represents.</p>
+          </li>
+
+          <li class="relative pb-10">
+            <span class="absolute -left-[2.3rem] top-1.5 h-3 w-3 rounded-full bg-term-green ring-4 ring-ink sm:-left-[2.8rem]" aria-hidden="true"></span>
+            <p class="font-mono text-sm font-semibold text-term-green"><time datetime="09:15">0915</time>–<time datetime="11:45">1145</time></p>
+            <h3 class="mt-1 text-lg font-semibold text-white">Phase I — Audit &amp; Harden</h3>
+            <p class="mt-2 text-sm text-zinc-400">Telemetry baselining, asset inventory, and vulnerability remediation inside each pod before adversary operations begin.</p>
+          </li>
+
+          <li class="relative pb-10">
+            <span class="absolute -left-[2.3rem] top-1.5 h-3 w-3 rounded-full bg-term-amber ring-4 ring-ink sm:-left-[2.8rem]" aria-hidden="true"></span>
+            <p class="font-mono text-sm font-semibold text-term-amber"><time datetime="11:45">1145</time>–<time datetime="12:45">1245</time></p>
+            <h3 class="mt-1 text-lg font-semibold text-white">Catered Working Lunch &amp; Distinguished Visitor (DV) Walkthrough</h3>
+            <p class="mt-2 text-sm text-zinc-400">Guided tour of the range floor and executive room for invited leaders and sponsors.</p>
+          </li>
+
+          <li class="relative pb-10">
+            <span class="absolute -left-[2.3rem] top-1.5 h-3 w-3 rounded-full bg-gradient-to-br from-term-green to-term-cyan ring-4 ring-ink sm:-left-[2.8rem]" aria-hidden="true"></span>
+            <p class="font-mono text-sm font-semibold text-white"><time datetime="12:45">1245</time>–<time datetime="16:00">1600</time></p>
+            <h3 class="mt-1 text-lg font-semibold text-white">Phase II — Live-Fire Defense &amp; Synchronized Executive Decision Simulation</h3>
+            <div class="mt-3 grid gap-3 sm:grid-cols-2">
+              <p class="rounded-lg border border-term-green/30 bg-term-green/[0.05] p-3 text-sm text-zinc-300"><span class="block font-mono text-xs text-term-green">TRACK 1</span>APT-916 operations go live. Detect, contain, and evict while holding service SLAs.</p>
+              <p class="rounded-lg border border-term-cyan/30 bg-term-cyan/[0.05] p-3 text-sm text-zinc-300"><span class="block font-mono text-xs text-term-cyan">TRACK 2</span>Telemetry-driven injects: disclosure decisions, media pressure, and continuity calls.</p>
+            </div>
+          </li>
+
+          <li class="relative pb-10">
+            <span class="absolute -left-[2.3rem] top-1.5 h-3 w-3 rounded-full bg-term-amber ring-4 ring-ink sm:-left-[2.8rem]" aria-hidden="true"></span>
+            <p class="font-mono text-sm font-semibold text-term-amber"><time datetime="16:00">1600</time>–<time datetime="17:00">1700</time></p>
+            <h3 class="mt-1 text-lg font-semibold text-white">Phase III — Joint Red/Blue/Exec Hotwash</h3>
+            <p class="mt-2 text-sm text-zinc-400">After-action review (AAR) debrief across all teams, scoring announcement, and CPE certificate issuance.</p>
+          </li>
+
+          <li class="relative">
+            <span class="absolute -left-[2.3rem] top-1.5 h-3 w-3 rounded-full border border-zinc-500 bg-ink ring-4 ring-ink sm:-left-[2.8rem]" aria-hidden="true"></span>
+            <p class="font-mono text-sm font-semibold text-zinc-300"><time datetime="17:30">1730</time>+</p>
+            <h3 class="mt-1 text-lg font-semibold text-white">Off-site Community Social</h3>
+            <p class="mt-2 text-sm text-zinc-400">Informal networking for participants, partners, and sponsors. Location shared with registered attendees.</p>
+          </li>
+        </ol>
+
+        <div class="mt-14 rounded-xl border border-zinc-800 bg-ink-800/60 p-6">
+          <p class="text-sm text-zinc-400">Schedule is subject to refinement as the pilot is finalized. Registered attendees receive the authoritative timeline and venue details by email.</p>
+          <a href="/#register" class="mt-4 inline-flex rounded-md bg-term-green px-4 py-2 font-mono text-sm font-bold text-black hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Register / Portal</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== Site Footer ========== -->
+  <footer class="border-t border-zinc-800 bg-ink-800/60">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div class="md:col-span-2">
+        <a href="/" class="font-mono text-lg font-bold text-white">0xSAC</a>
+        <p class="mt-3 max-w-sm text-sm text-zinc-400">Sacramento Advanced Cyber Range &amp; Executive Simulation. Presented by MCPA Sacramento, a 501(c)(3) educational non-profit. Engineered by Mogsec.</p>
+      </div>
+      <nav aria-label="Footer — Tracks">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Tracks</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/livefire.html" class="text-zinc-300 hover:text-white">Live-Fire &amp; CTF</a></li>
+          <li><a href="/executive.html" class="text-zinc-300 hover:text-white">Executive Simulation</a></li>
+          <li><a href="/#register" class="text-zinc-300 hover:text-white">Register / Portal</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Footer — Event">
+        <h2 class="font-mono text-xs uppercase tracking-widest text-zinc-500">Event</h2>
+        <ul class="mt-3 space-y-2 text-sm" role="list">
+          <li><a href="/schedule.html" class="text-zinc-300 hover:text-white">Schedule</a></li>
+          <li><a href="/governance.html" class="text-zinc-300 hover:text-white">Governance &amp; Sponsorship</a></li>
+          <li><a href="/resources" class="text-zinc-300 hover:text-white">Resources</a></li>
+          <li><a href="https://github.com/0xSac" class="text-zinc-300 hover:text-white" rel="noopener">GitHub Organization</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="border-t border-zinc-800">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 font-mono text-xs text-zinc-500 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+        <p>&copy; 2026 0xSAC &bull; MCPA Sacramento Chapter &bull; Sacramento, CA</p>
+        <p>Range runs 100% in isolated vendor-hosted cloud. <a href="/governance.html#separation" class="text-zinc-400 underline underline-offset-4 hover:text-white">Details</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js" defer></script>
+</body>
+</html>

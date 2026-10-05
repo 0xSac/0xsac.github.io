@@ -23,9 +23,13 @@ const { title } = Astro.props;
     <div class="relative z-10 min-h-screen flex flex-col overflow-x-hidden">
       <div class="relative w-full max-w-4xl mx-auto px-6 py-10 flex-grow flex flex-col justify-between" style="z-index: 10;">
       <header class="flex justify-between items-center pb-6 border-b border-slate-800">
-        <a href="/" class="text-xl font-mono font-bold text-sky-400">0xSac</a>
-        <nav class="space-x-6 text-sm font-mono text-slate-400">
+        <a href="/" class="text-xl font-mono font-bold text-sky-400">0xSAC</a>
+        <nav class="flex flex-wrap justify-end gap-x-6 gap-y-2 text-sm font-mono text-slate-400">
           <a href="/" class="hover:text-white">Home</a>
+          <a href="/livefire.html" class="hover:text-white">Live-Fire</a>
+          <a href="/executive.html" class="hover:text-white">Executive</a>
+          <a href="/schedule.html" class="hover:text-white">Schedule</a>
+          <a href="/governance.html" class="hover:text-white">Governance</a>
           <a href="/about" class="hover:text-white">About</a>
           <a href="/resources" class="hover:text-white">Resources</a>
         </nav>
@@ -36,7 +40,7 @@ const { title } = Astro.props;
         </main>
 
         <footer class="pt-8 border-t border-slate-800 text-xs font-mono text-slate-500 flex justify-between">
-          <span>&copy; 2026 0xSac &bull; Sacramento, CA</span>
+          <span>&copy; 2026 0xSAC &bull; Sacramento, CA</span>
           <span class="text-slate-600">Annual Cyber Exercise &amp; Range Platform</span>
         </footer>
       </div>
